@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="rotamaster">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Name: Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="layout">
+
+  <nav class="sidebar">
+    <div class="sidebar__project">
+      <img src="images/twinkl_logo_cropped_300px.png" alt="Client logo" class="sidebar__logo">
+      <p class="body-bold" style="color: var(--color-text-primary)">Project Name</p>
+      <p class="body-x-small" style="color: var(--color-text-secondary); margin-top: 4px;">Project question or tagline goes here</p>
+    </div>
+    <div class="sidebar__nav">
+      <a href="introduction.html" class="sidebar__link">Introduction</a>
+      <a href="overview.html" class="sidebar__link active">Overview</a>
+      <a href="discovery.html" class="sidebar__link">Discovery</a>
+      <a href="design.html" class="sidebar__link">Design</a>
+      <a href="development.html" class="sidebar__link">Development</a>
+      <a href="release.html" class="sidebar__link">Release</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <div class="page-title">
+      <div class="page-title__inner">
+        <p class="body-x-small" style="color: var(--color-text-primary)">DD Month YYYY</p>
+        <h1 style="color: var(--color-text-primary)">Overview</h1>
+        <p style="font-family: var(--family-headings); font-size: var(--size-large); font-weight: var(--weight-400); color: var(--color-text-secondary); margin-top: 4px; line-height: 1.2;">[Project subtitle]</p>
+      </div>
+    </div>
+
+    <div class="page-intro">
+      <div class="page-intro__inner intro-text">
+        <p>[Intro paragraph. Describe what this project is, who it affects, and what it aims to achieve in 2–3 sentences.]</p>
+        <p>&nbsp;</p>
+        <ul>
+          <li>[Key objective one]</li>
+          <li>[Key objective two]</li>
+          <li>[Key objective three]</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sections">
+
+      <!-- Existing design: screenshot mockup -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Existing design</h3>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary)">[Brief description of what the existing design shows and why it is the starting point for this project.]</p>
+        <div class="screenshot-frame">
+          <div class="screenshot-browser-bar">
+            <span class="screenshot-dot"></span>
+            <span class="screenshot-dot"></span>
+            <span class="screenshot-dot"></span>
+            <span class="screenshot-url">example.com/path</span>
+          </div>
+          <div class="screenshot-body">
+            <div class="signup-mockup">
+              <h2 class="signup-mockup__title">[Form heading]</h2>
+              <div class="signup-mockup__field">
+                <span class="signup-mockup__label">[Field label]</span>
+                <span class="signup-mockup__placeholder">[Placeholder text]</span>
+              </div>
+              <div class="signup-mockup__field">
+                <span class="signup-mockup__label">[Field label]</span>
+                <span class="signup-mockup__placeholder">[Placeholder text]</span>
+                <span class="signup-mockup__eye">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#071f32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                    <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                    <path d="M9.9 14.1a3 3 0 0 1-4-4"/>
+                    <line x1="2" y1="2" x2="22" y2="22"/>
+                  </svg>
+                </span>
+              </div>
+              <button class="signup-mockup__btn">[Primary CTA button text]</button>
+              <p class="signup-mockup__legal">[Legal copy placeholder. By continuing, you agree to the Terms and Conditions and Privacy Notice.]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario (brand card) -->
+      <div class="card--brand">
+        <div class="card-header">
+          <h2 style="color: var(--color-text-light)">Scenario</h2>
+        </div>
+        <p class="body" style="color: var(--color-text-light)">
+          [Scenario description. Set the scene for the project: describe the product, the business context, and the specific problem or opportunity that has been identified. Include relevant background that helps a reader understand the stakes and why this work matters. 3–5 sentences.]
+        </p>
+      </div>
+
+      <!-- The problem -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">The problem</h3>
+        </div>
+        <p class="body" style="color: var(--color-text-secondary)">
+          [Problem paragraph one. Describe the core issue in detail: what is broken, where it manifests, and who is affected. Be specific about the experience and its consequences.]
+        </p>
+        <p class="body" style="color: var(--color-text-secondary)">
+          [Problem paragraph two. Expand on any downstream effects or secondary issues caused by the primary problem. Describe what happens to users who encounter it.]
+        </p>
+      </div>
+
+      <!-- Pain points -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Pain points</h3>
+        </div>
+        <div class="grid-2col">
+
+          <div class="info-card">
+            <div class="badge">01</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">02</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">03</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">04</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">05</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">06</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Key metrics -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Key metrics</h3>
+        </div>
+        <div class="grid-3col">
+
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">XX%</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
+          </div>
+
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">XX%</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
+          </div>
+
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">XX%</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
+          </div>
+
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">XX%</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
+          </div>
+
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">XX+</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
+          </div>
+
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">£X.Xm</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Design brief -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Design brief</h3>
+        </div>
+        <p class="body" style="color: var(--color-text-secondary)">
+          [Design brief. Describe the scope and goals of the design work in 2–3 sentences. Include the key constraints, target users, and intended outcomes. Be specific about what success looks like.]
+        </p>
+      </div>
+
+      <!-- Stakeholders -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Stakeholders</h3>
+        </div>
+        <div class="grid-3col">
+
+          <div class="info-card">
+            <div class="badge badge--maroon">AA</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Name]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Role title]</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge badge--blue">BB</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Name]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Role title]</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge badge--teal">CC</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Name]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Role title]</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge badge--green">DD</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">[Name]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Role title]</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /sections -->
+  </div><!-- /page -->
+
+  </div><!-- /layout -->
+
+  <script src="js/script.js"></script>
+</body>
+</html>

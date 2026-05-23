@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe: Nav Redesign</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding: 28px 24px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ===================== PAGE CHROME ===================== */
+    .page-header {
+      width: 100%; max-width: 1440px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .page-header__meta { display: flex; flex-direction: column; gap: 2px; }
+    .page-header__label {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #888;
+    }
+    .page-header__title { font-size: 18px; font-weight: 700; color: #1a1a1a; }
+    .page-header__badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; background: #e8e8e8; border-radius: 999px;
+      font-size: 13px; font-weight: 700; color: #666;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #aaa; }
+
+    /* ===================== CONTROL ROWS ===================== */
+    .controls {
+      width: 100%; max-width: 1440px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .control-row {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .control-row__label {
+      font-size: 13px; font-weight: 700; color: #888;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      min-width: 64px;
+    }
+    .ctrl-btn {
+      padding: 5px 13px; border-radius: 999px; font-size: 14px;
+      font-weight: 700; cursor: pointer; border: none; transition: all 0.12s;
+    }
+    .ctrl-btn--active   { background: #333; color: #fff; }
+    .ctrl-btn--inactive { background: #e0e0e0; color: #888; }
+    .ctrl-btn--inactive:hover { background: #d0d0d0; }
+
+    /* ===================== BROWSER ===================== */
+    .browser {
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+      background: #fff;
+      transition: max-width 0.35s ease;
+    }
+    .browser.is-desktop { width: 100%; max-width: 1440px; }
+    .browser.is-mobile  { width: 100%; max-width: 390px; }
+
+    .browser-bar {
+      background: #e8e8e8; padding: 9px 14px;
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 1px solid #d8d8d8;
+    }
+    .browser-dots { display: flex; gap: 6px; }
+    .browser-dot  { width: 10px; height: 10px; border-radius: 50%; background: #bbb; }
+    .browser-url  {
+      flex: 1; background: #fff; border-radius: 6px;
+      padding: 4px 12px; font-size: 13px; color: #888;
+    }
+
+    /* =====================================================================
+       DESKTOP NAV
+    ===================================================================== */
+
+    /* --- Row 1: Utility bar --- */
+    .wf-header-primary {
+      background: #fff; border-bottom: 1px solid #ececec;
+      padding: 0 20px; height: 52px;
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .wf-logo {
+      width: 76px; height: 24px;
+      background: #555; border-radius: 4px; flex-shrink: 0;
+    }
+
+    .wf-search {
+      flex: 1; height: 34px;
+      background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px;
+      display: flex; align-items: center; padding: 0 12px; gap: 8px;
+    }
+    .wf-search__icon {
+      width: 13px; height: 13px; border-radius: 50%; border: 2px solid #bbb; flex-shrink: 0;
+    }
+    .wf-search__text { font-size: 14px; color: #bbb; }
+
+    .wf-util-group { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
+    .wf-util-item  { font-size: 14px; font-weight: 400; color: #555; padding: 0 11px; white-space: nowrap; cursor: pointer; }
+    .wf-util-item:hover { color: #222; }
+    .wf-util-divider { width: 1px; height: 14px; background: #e0e0e0; }
+
+    .wf-lang { display: flex; align-items: center; gap: 5px; }
+    .wf-lang__flag { width: 15px; height: 11px; background: #c8c8c8; border-radius: 2px; }
+
+    .wf-cta-group { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .wf-btn-signin {
+      padding: 6px 13px; border: 1.5px solid #d0d0d0; border-radius: 6px;
+      font-size: 14px; font-weight: 700; color: #999; background: transparent; cursor: pointer;
+    }
+    .wf-btn-join {
+      padding: 6px 13px; background: #555; border-radius: 6px;
+      font-size: 14px; font-weight: 700; color: #fff; cursor: pointer;
+    }
+
+    /* --- Row 2: Main nav --- */
+    .wf-header-nav {
+      background: #fff; border-bottom: 1px solid #ddd;
+      padding: 0 20px; height: 42px;
+      display: flex; align-items: stretch; gap: 0;
+    }
+
+    /* Disney: distinct featured partner pill */
+    .wf-disney {
+      display: flex; align-items: center; gap: 6px;
+      padding: 0 13px; margin: 7px 14px 7px 0;
+      background: #e6e6e6; border-radius: 6px;
+      font-size: 14px; font-weight: 700; color: #555;
+      cursor: pointer; flex-shrink: 0; border: 1.5px solid #d0d0d0;
+    }
+    .wf-disney:hover { background: #ddd; }
+    .wf-disney__icon { width: 13px; height: 13px; border-radius: 50%; background: #bbb; flex-shrink: 0; }
+    .wf-disney__chevron {
+      width: 7px; height: 7px;
+      border-right: 2px solid #999; border-bottom: 2px solid #999;
+      transform: rotate(45deg) translateY(-2px); display: inline-block; margin-left: 2px;
+    }
+
+    /* Split-button: label = navigate, chevron = open dropdown */
+    .wf-nav-split {
+      display: flex; align-items: stretch;
+      border-bottom: 3px solid transparent;
+    }
+    .wf-nav-split:hover { background: #fafafa; }
+    .wf-nav-split.is-open { border-bottom-color: #aaa; background: #fafafa; }
+
+    .wf-nav-split__label {
+      display: flex; align-items: center;
+      padding: 0 9px 0 12px;
+      font-size: 14px; font-weight: 700; color: #777;
+      cursor: pointer; white-space: nowrap;
+    }
+    .wf-nav-split__label:hover { color: #444; text-decoration: underline; text-underline-offset: 2px; }
+    .wf-nav-split.is-open .wf-nav-split__label { color: #333; }
+
+    .wf-nav-split__trigger {
+      display: flex; align-items: center; padding: 0 10px 0 6px;
+      cursor: pointer; border-right: 1px solid #eee; color: #ccc;
+    }
+    .wf-nav-split__trigger:hover { background: #f0f0f0; color: #777; }
+    .wf-nav-split.is-open .wf-nav-split__trigger { color: #777; }
+
+    .wf-nav-split__chevron {
+      width: 7px; height: 7px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      display: inline-block; transition: transform 0.15s;
+    }
+    .wf-nav-split.is-open .wf-nav-split__chevron { transform: rotate(225deg) translateY(2px); }
+
+    /* Plain nav link */
+    .wf-nav-plain {
+      display: flex; align-items: center; padding: 0 12px;
+      font-size: 14px; font-weight: 700; color: #777;
+      cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap;
+    }
+    .wf-nav-plain:hover { color: #555; background: #fafafa; }
+
+    /* =====================================================================
+       MEGA MENU (desktop)
+    ===================================================================== */
+    .wf-megamenu {
+      border-bottom: 1px solid #e8e8e8; background: #fff;
+      padding: 20px 20px; display: none;
+    }
+    .wf-megamenu.is-visible { display: block; }
+
+    .wf-mega-header {
+      font-size: 13px; font-weight: 700; color: #aaa;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 14px; padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* Disney mega menu — simple franchise list */
+    .wf-megamenu--disney { padding: 16px 20px; }
+    .wf-mega-disney-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px 0;
+      max-width: 480px;
+    }
+    .wf-mega-disney-item {
+      font-size: 15px; color: #555; padding: 7px 12px;
+      border-radius: 5px; cursor: pointer;
+    }
+    .wf-mega-disney-item:hover { background: #f5f5f5; color: #111; }
+
+    /* Age mega menu — two-panel layout */
+    .wf-mega-age {
+      display: flex;
+      min-height: 260px;
+    }
+
+    /* Left panel: stage selector */
+    .wf-mega-stage-list {
+      width: 176px;
+      flex-shrink: 0;
+      border-right: 1px solid #eee;
+      padding: 6px 0;
+    }
+
+    .wf-mega-stage-btn {
+      display: flex;
+      flex-direction: column;
+      padding: 9px 16px;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: background 0.1s;
+    }
+    .wf-mega-stage-btn:hover { background: #fafafa; }
+    .wf-mega-stage-btn.is-active {
+      border-left-color: #999;
+      background: #f5f5f5;
+    }
+    .wf-mega-stage-btn__name {
+      font-size: 14px; font-weight: 700; color: #555;
+    }
+    .wf-mega-stage-btn.is-active .wf-mega-stage-btn__name { color: #222; }
+    .wf-mega-stage-btn__age {
+      font-size: 12px; color: #888; margin-top: 2px;
+    }
+
+    /* Right panel: content for selected stage */
+    .wf-mega-stage-content {
+      flex: 1;
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: 168px repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .wf-mega-col-header {
+      font-size: 12px; font-weight: 700; color: #888;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 10px; padding-bottom: 7px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .wf-mega-link {
+      height: 9px; background: #e8e8e8; border-radius: 3px; margin-bottom: 8px;
+    }
+    .wf-mega-link:nth-child(2) { width: 92%; }
+    .wf-mega-link:nth-child(3) { width: 76%; }
+    .wf-mega-link:nth-child(4) { width: 86%; }
+    .wf-mega-link:nth-child(5) { width: 68%; }
+    .wf-mega-link:nth-child(6) { width: 80%; }
+    .wf-mega-link:nth-child(7) { width: 72%; }
+
+    /* Recommended column: slightly different — editorial feel */
+    .wf-mega-recommended { background: #fafafa; border-radius: 8px; padding: 10px 12px; }
+    .wf-mega-rec-link {
+      height: 9px; background: #e0e0e0; border-radius: 3px; margin-bottom: 9px;
+    }
+    .wf-mega-rec-link:nth-child(2) { width: 95%; }
+    .wf-mega-rec-link:nth-child(3) { width: 80%; }
+    .wf-mega-rec-link:nth-child(4) { width: 90%; }
+    .wf-mega-rec-link:nth-child(5) { width: 70%; }
+    .wf-mega-rec-link:nth-child(6) { width: 85%; }
+    .wf-mega-rec-link:nth-child(7) { width: 65%; }
+
+    /* Browse all footer row — spans full grid width */
+    .wf-mega-browse-all {
+      grid-column: 1 / -1;
+      border-top: 1px solid #eee;
+      padding-top: 12px;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 700; color: #555;
+      cursor: pointer;
+    }
+    .wf-mega-browse-all:hover { color: #222; }
+    .wf-mega-browse-all__arrow {
+      width: 6px; height: 6px;
+      border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg); display: inline-block;
+    }
+
+    /* Subject mega menu */
+    .wf-mega-subjects {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+
+    .wf-mega-subject-pill {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 12px; background: #f5f5f5; border-radius: 8px; cursor: pointer; margin-bottom: 8px;
+    }
+    .wf-mega-subject-pill:hover { background: #ebebeb; }
+    .wf-mega-subject-pill__icon { width: 24px; height: 24px; background: #ddd; border-radius: 5px; flex-shrink: 0; }
+    .wf-mega-subject-pill__text { font-size: 14px; font-weight: 700; color: #555; flex: 1; }
+
+    /* =====================================================================
+       DESKTOP PAGE CONTENT (placeholder)
+    ===================================================================== */
+    .wf-page-content { padding: 24px 20px; display: flex; flex-direction: column; gap: 12px; }
+    .wf-hero {
+      height: 140px; background: #eee; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; flex-direction: column;
+    }
+    .wf-hero__heading { width: 260px; height: 18px; background: #d8d8d8; border-radius: 4px; }
+    .wf-hero__sub    { width: 170px; height: 11px; background: #e0e0e0; border-radius: 3px; }
+    .wf-cards-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .wf-resource-card { background: #f5f5f5; border-radius: 8px; overflow: hidden; }
+    .wf-resource-card__thumb { width: 100%; height: 68px; background: #e0e0e0; }
+    .wf-resource-card__body  { padding: 9px; display: flex; flex-direction: column; gap: 5px; }
+    .wf-resource-card__title { height: 9px; background: #ccc; border-radius: 3px; width: 85%; }
+    .wf-resource-card__meta  { height: 8px; background: #ddd; border-radius: 3px; width: 55%; }
+
+    /* =====================================================================
+       MOBILE NAV
+    ===================================================================== */
+    .wf-mobile-header {
+      background: #fff; border-bottom: 1px solid #e0e0e0;
+      padding: 0 16px; height: 52px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wf-mobile-logo { width: 64px; height: 20px; background: #555; border-radius: 4px; }
+    .wf-mobile-search {
+      flex: 1; height: 32px; background: #f5f5f5; border: 1px solid #e0e0e0;
+      border-radius: 8px; display: flex; align-items: center; padding: 0 10px; gap: 7px;
+    }
+    .wf-mobile-search__icon { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #bbb; flex-shrink: 0; }
+    .wf-mobile-search__text { font-size: 13px; color: #bbb; }
+
+    /* Hamburger button */
+    .wf-hamburger {
+      width: 36px; height: 36px; flex-shrink: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 5px; cursor: pointer;
+    }
+    .wf-hamburger__line {
+      width: 20px; height: 2px; background: #888; border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .wf-hamburger.is-open .wf-hamburger__line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .wf-hamburger.is-open .wf-hamburger__line:nth-child(2) { opacity: 0; }
+    .wf-hamburger.is-open .wf-hamburger__line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile drawer */
+    .wf-mobile-drawer {
+      background: #fff; overflow: hidden;
+      max-height: 0; transition: max-height 0.3s ease;
+    }
+    .wf-mobile-drawer.is-open { max-height: 600px; }
+
+    /* Mobile nav items (accordion) */
+    .wf-mob-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px; border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+    }
+    .wf-mob-item:hover { background: #fafafa; }
+    .wf-mob-item__left { display: flex; align-items: center; gap: 10px; }
+    .wf-mob-item__icon { width: 28px; height: 28px; background: #ebebeb; border-radius: 6px; flex-shrink: 0; }
+    .wf-mob-item__label { font-size: 16px; font-weight: 700; color: #333; }
+    .wf-mob-item__sub { font-size: 13px; color: #777; margin-top: 1px; }
+    .wf-mob-item__chevron {
+      width: 8px; height: 8px; border-right: 2px solid #bbb; border-bottom: 2px solid #bbb;
+      transform: rotate(-45deg); flex-shrink: 0;
+    }
+
+    /* Disney mobile item */
+    .wf-mob-item--disney .wf-mob-item__icon { background: #e0e0e0; border: 1.5px solid #ccc; }
+    .wf-mob-item--disney .wf-mob-item__label { color: #555; }
+
+    /* Mobile drawer accordion */
+    .wf-mob-item { cursor: pointer; }
+    .wf-mob-item__chevron { transition: transform 0.2s; }
+    .wf-mob-item.is-expanded .wf-mob-item__chevron { transform: rotate(90deg); }
+
+    .wf-mob-sub {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.25s ease;
+      background: #fafafa; border-bottom: 1px solid #f0f0f0;
+    }
+    .wf-mob-sub-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 16px 11px 54px;
+      font-size: 15px; color: #666;
+      border-bottom: 1px solid #f5f5f5; cursor: pointer;
+    }
+    .wf-mob-sub-item:hover { background: #f0f0f0; color: #333; }
+    .wf-mob-sub-item:last-child { border-bottom: none; }
+    .wf-mob-sub-item__chevron {
+      width: 7px; height: 7px;
+      border-right: 1.5px solid #ccc; border-bottom: 1.5px solid #ccc;
+      transform: rotate(-45deg); flex-shrink: 0;
+    }
+
+    /* Mobile CTA row */
+    .wf-mob-cta {
+      padding: 16px; display: flex; gap: 8px; border-top: 1px solid #eee;
+    }
+    .wf-mob-signin {
+      flex: 1; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px;
+      text-align: center; font-size: 15px; font-weight: 700; color: #888; cursor: pointer;
+    }
+    .wf-mob-join {
+      flex: 1; padding: 10px; background: #555; border-radius: 8px;
+      text-align: center; font-size: 15px; font-weight: 700; color: #fff; cursor: pointer;
+    }
+
+    /* Mobile page content */
+    .wf-mobile-content { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .wf-mobile-hero {
+      height: 120px; background: #eee; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+    }
+    .wf-mobile-hero__h { width: 180px; height: 14px; background: #d8d8d8; border-radius: 3px; }
+    .wf-mobile-hero__s { width: 120px; height: 10px; background: #e0e0e0; border-radius: 3px; }
+    .wf-mobile-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    /* =====================================================================
+       STAGE LANDING PAGES
+    ===================================================================== */
+    .wf-stage-page { display: none; }
+    .wf-stage-page.is-visible { display: block; }
+
+    .wf-stage-breadcrumb {
+      padding: 8px 20px; font-size: 13px; color: #888;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .wf-stage-breadcrumb__sep { color: #ddd; }
+
+    .wf-stage-hero {
+      padding: 18px 20px 16px; border-bottom: 1px solid #eee;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .wf-stage-hero__eyebrow {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #888;
+    }
+    .wf-stage-hero__title {
+      width: 200px; height: 17px; background: #d8d8d8; border-radius: 4px;
+    }
+    .wf-stage-hero__sub {
+      width: 320px; height: 10px; background: #ebebeb; border-radius: 3px;
+    }
+
+    .wf-stage-sections { padding: 0 20px 24px; }
+
+    .wf-stage-section { padding-top: 18px; }
+    .wf-stage-section__header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .wf-stage-section__title {
+      font-size: 14px; font-weight: 700; color: #555;
+      padding-left: 8px; border-left: 3px solid #d0d0d0;
+    }
+    .wf-stage-section__all {
+      font-size: 13px; color: #888; cursor: pointer;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .wf-stage-section__all:hover { color: #777; }
+    .wf-stage-section__all__arrow {
+      width: 5px; height: 5px;
+      border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+      transform: rotate(-45deg); display: inline-block;
+    }
+
+    /* =====================================================================
+       ANNOTATIONS
+    ===================================================================== */
+    .annotations-grid {
+      width: 100%; max-width: 1440px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    }
+    .annotation {
+      background: #fff; border-radius: 8px; padding: 13px 15px;
+      border-left: 3px solid #b0c8b0;
+    }
+    .annotation__tag {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: #aaa; margin-bottom: 3px;
+    }
+    .annotation__title { font-size: 15px; font-weight: 700; color: #333; margin-bottom: 4px; }
+    .annotation__body  { font-size: 14px; color: #777; line-height: 1.5; }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <div class="page-header__meta">
+      <span class="page-header__label">Twinkl Nav Redesign</span>
+      <span class="page-header__title">Wireframe: nav bar</span>
+    </div>
+    <div class="page-header__badge">
+      <span class="dot"></span>
+      Low fidelity &nbsp;&bull;&nbsp; Wireframe
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="control-row">
+      <span class="control-row__label">Viewport</span>
+      <button class="ctrl-btn ctrl-btn--active"   id="vp-desktop" onclick="setViewport('desktop')">Desktop</button>
+      <button class="ctrl-btn ctrl-btn--inactive" id="vp-mobile"  onclick="setViewport('mobile')">Mobile</button>
+    </div>
+    <div class="control-row" id="desktop-states">
+      <span class="control-row__label">State</span>
+      <button class="ctrl-btn ctrl-btn--active"   id="st-closed"  onclick="event.stopPropagation(); setDesktopState('closed')">Nav closed</button>
+      <button class="ctrl-btn ctrl-btn--inactive" id="st-disney"  onclick="event.stopPropagation(); setDesktopState('disney')">Disney open</button>
+      <button class="ctrl-btn ctrl-btn--inactive" id="st-age"     onclick="event.stopPropagation(); setDesktopState('age')">Browse by age open</button>
+      <button class="ctrl-btn ctrl-btn--inactive" id="st-subject" onclick="event.stopPropagation(); setDesktopState('subject')">Browse by subject open</button>
+      <button class="ctrl-btn ctrl-btn--inactive" id="st-leaders" onclick="event.stopPropagation(); setDesktopState('leaders')">Leaders open</button>
+    </div>
+    <div class="control-row" id="mobile-states" style="display:none">
+      <span class="control-row__label">State</span>
+      <button class="ctrl-btn ctrl-btn--active"   id="mob-closed" onclick="event.stopPropagation(); setMobileState('closed')">Menu closed</button>
+      <button class="ctrl-btn ctrl-btn--inactive" id="mob-open"   onclick="event.stopPropagation(); setMobileState('open')">Menu open</button>
+    </div>
+  </div>
+
+  <!-- ===== BROWSER ===== -->
+  <div class="browser is-desktop" id="browser">
+
+    <div class="browser-bar">
+      <div class="browser-dots">
+        <span class="browser-dot"></span>
+        <span class="browser-dot"></span>
+        <span class="browser-dot"></span>
+      </div>
+      <div class="browser-url">twinkl.co.uk</div>
+    </div>
+
+    <!-- ========== DESKTOP LAYOUT ========== -->
+    <div id="desktop-layout">
+
+      <!-- Row 1: Logo + search + utility + single CTA -->
+      <div class="wf-header-primary">
+        <div class="wf-logo"></div>
+        <div class="wf-search">
+          <div class="wf-search__icon"></div>
+          <span class="wf-search__text">Search for resources...</span>
+        </div>
+        <div class="wf-util-group">
+          <span class="wf-util-item">School Enquiries</span>
+          <div class="wf-util-divider"></div>
+          <span class="wf-util-item">
+            <span class="wf-lang"><span class="wf-lang__flag"></span>English</span>
+          </span>
+          <div class="wf-util-divider"></div>
+          <span class="wf-util-item">Sign In</span>
+        </div>
+        <div class="wf-cta-group">
+          <div class="wf-btn-join">Join for FREE</div>
+        </div>
+      </div>
+
+      <!-- Row 2: Redesigned nav — 5 intent-based items -->
+      <div class="wf-header-nav">
+
+        <!-- Disney: featured partner — click closes any open dropdown -->
+        <div class="wf-disney" onclick="handleSplitClick(event,'disney')">
+          <div class="wf-disney__icon"></div>
+          Disney
+          <span class="wf-disney__chevron"></span>
+        </div>
+
+        <!-- Browse by age: split button — label navigates, chevron opens dropdown -->
+        <div class="wf-nav-split" id="nav-age" onclick="handleSplitClick(event,'age')">
+          <span class="wf-nav-split__label" title="Go to age groups landing page">Browse by age</span>
+          <span class="wf-nav-split__trigger" title="Open dropdown">
+            <span class="wf-nav-split__chevron"></span>
+          </span>
+        </div>
+
+        <!-- Browse by subject -->
+        <div class="wf-nav-split" id="nav-subject" onclick="handleSplitClick(event,'subject')">
+          <span class="wf-nav-split__label" title="Go to subjects landing page">Browse by subject</span>
+          <span class="wf-nav-split__trigger" title="Open dropdown">
+            <span class="wf-nav-split__chevron"></span>
+          </span>
+        </div>
+
+        <!-- Leaders: distinct audience with own sub-brand -->
+        <div class="wf-nav-split" id="nav-leaders" onclick="handleSplitClick(event,'leaders')">
+          <span class="wf-nav-split__label" title="Go to Leaders hub">Leaders</span>
+          <span class="wf-nav-split__trigger" title="Open dropdown">
+            <span class="wf-nav-split__chevron"></span>
+          </span>
+        </div>
+
+        <!-- Parents: direct link, no dropdown — consumer audience with separate hub -->
+        <div class="wf-nav-plain" onclick="" style="border-right: 1px solid #eee;">Parents</div>
+
+        <!-- Store: pushed to far right — transactional, not a content category -->
+        <div class="wf-nav-plain" style="margin-left: auto;">Twinkl Store</div>
+
+      </div>
+
+      <!-- Mega menu: Disney — simple franchise list, no section headings -->
+      <div class="wf-megamenu wf-megamenu--disney" id="mega-disney" onclick="event.stopPropagation()">
+        <div class="wf-mega-disney-grid">
+          <div class="wf-mega-disney-item">Frozen</div>
+          <div class="wf-mega-disney-item">The Lion King</div>
+          <div class="wf-mega-disney-item">Cars</div>
+          <div class="wf-mega-disney-item">Encanto</div>
+          <div class="wf-mega-disney-item">Inside Out</div>
+          <div class="wf-mega-disney-item">Moana</div>
+          <div class="wf-mega-disney-item">Toy Story</div>
+          <div class="wf-mega-disney-item">The Little Mermaid</div>
+          <div class="wf-mega-disney-item">Lilo &amp; Stitch</div>
+          <div class="wf-mega-disney-item">Monsters, Inc</div>
+          <div class="wf-mega-disney-item">Coco</div>
+          <div class="wf-mega-disney-item">Zootropolis</div>
+          <div class="wf-mega-disney-item">Beauty and the Beast</div>
+          <div class="wf-mega-disney-item">Turning Red</div>
+          <div class="wf-mega-disney-item">Elio</div>
+          <div class="wf-mega-disney-item">Brave</div>
+          <div class="wf-mega-disney-item">Aladdin</div>
+          <div class="wf-mega-disney-item">Finding Nemo</div>
+        </div>
+      </div>
+
+      <!-- Mega menu: Browse by age — two-panel design -->
+      <div class="wf-megamenu" id="mega-age" onclick="event.stopPropagation()">
+        <div class="wf-mega-age">
+
+          <!-- Left panel: age stage selector -->
+          <div class="wf-mega-stage-list">
+            <div class="wf-mega-stage-btn is-active" onclick="setStage(this,'eyfs')">
+              <span class="wf-mega-stage-btn__name">Early Years</span>
+              <span class="wf-mega-stage-btn__age">Ages 3–5</span>
+            </div>
+            <div class="wf-mega-stage-btn" onclick="setStage(this,'ks1')">
+              <span class="wf-mega-stage-btn__name">KS1</span>
+              <span class="wf-mega-stage-btn__age">Ages 5–7</span>
+            </div>
+            <div class="wf-mega-stage-btn" onclick="setStage(this,'ks2')">
+              <span class="wf-mega-stage-btn__name">KS2</span>
+              <span class="wf-mega-stage-btn__age">Ages 7–11</span>
+            </div>
+            <div class="wf-mega-stage-btn" onclick="setStage(this,'ks3')">
+              <span class="wf-mega-stage-btn__name">KS3</span>
+              <span class="wf-mega-stage-btn__age">Ages 11–14</span>
+            </div>
+            <div class="wf-mega-stage-btn" onclick="setStage(this,'ks4')">
+              <span class="wf-mega-stage-btn__name">KS4–5</span>
+              <span class="wf-mega-stage-btn__age">Ages 14–18</span>
+            </div>
+            <div class="wf-mega-stage-btn" onclick="setStage(this,'send')">
+              <span class="wf-mega-stage-btn__name">SEND &amp; Inclusion</span>
+            </div>
+            <div class="wf-mega-stage-btn" onclick="setStage(this,'home')">
+              <span class="wf-mega-stage-btn__name">Home Education</span>
+            </div>
+          </div>
+
+          <!-- Right panel: content columns for selected stage -->
+          <!-- EYFS content (default) -->
+          <div class="wf-mega-stage-content" id="stage-eyfs">
+            <div class="wf-mega-recommended">
+              <div class="wf-mega-col-header">Twinkl Recommends</div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Areas of Learning</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Themes and Topics</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Planning and Assessment</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div class="wf-mega-browse-all" onclick="showStagePage('eyfs')">Browse all Early Years resources <span class="wf-mega-browse-all__arrow"></span></div>
+          </div>
+
+          <!-- KS1 content — English and Maths as dedicated columns, matching high-traffic primary subjects -->
+          <div class="wf-mega-stage-content" id="stage-ks1" style="display:none; grid-template-columns: 168px repeat(4,1fr);">
+            <div class="wf-mega-recommended">
+              <div class="wf-mega-col-header">Twinkl Recommends</div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">English</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Maths</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Subjects</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Planning and Assessment</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div class="wf-mega-browse-all" onclick="showStagePage('ks1')">Browse all KS1 resources <span class="wf-mega-browse-all__arrow"></span></div>
+          </div>
+
+          <!-- KS2 content — identical column structure to KS1 -->
+          <div class="wf-mega-stage-content" id="stage-ks2" style="display:none; grid-template-columns: 168px repeat(4,1fr);">
+            <div class="wf-mega-recommended">
+              <div class="wf-mega-col-header">Twinkl Recommends</div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">English</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Maths</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Subjects</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Planning and Assessment</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div class="wf-mega-browse-all" onclick="showStagePage('ks2')">Browse all KS2 resources <span class="wf-mega-browse-all__arrow"></span></div>
+          </div>
+
+          <!-- KS3 content — subject-specific columns reflecting secondary curriculum; Science promoted alongside English and Maths -->
+          <div class="wf-mega-stage-content" id="stage-ks3" style="display:none; grid-template-columns: 168px repeat(4,1fr);">
+            <div class="wf-mega-recommended">
+              <div class="wf-mega-col-header">Twinkl Recommends</div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">English</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Maths</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Science</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">More Subjects</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div>
+            </div>
+            <div class="wf-mega-browse-all" onclick="showStagePage('ks3')">Browse all KS3 resources <span class="wf-mega-browse-all__arrow"></span></div>
+          </div>
+
+          <!-- KS4-5 content — same secondary structure as KS3 -->
+          <div class="wf-mega-stage-content" id="stage-ks4" style="display:none; grid-template-columns: 168px repeat(4,1fr);">
+            <div class="wf-mega-recommended">
+              <div class="wf-mega-col-header">Twinkl Recommends</div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">English</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Maths</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Science</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">More Subjects</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div>
+            </div>
+            <div class="wf-mega-browse-all" onclick="showStagePage('ks4')">Browse all KS4–5 resources <span class="wf-mega-browse-all__arrow"></span></div>
+          </div>
+
+          <!-- SEND and Inclusion content -->
+          <div class="wf-mega-stage-content" id="stage-send" style="display:none;">
+            <div class="wf-mega-recommended">
+              <div class="wf-mega-col-header">Twinkl Recommends</div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Learning Needs</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Communication</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Pastoral and Inclusion</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div class="wf-mega-browse-all" onclick="showStagePage('send')">Browse all SEND and Inclusion resources <span class="wf-mega-browse-all__arrow"></span></div>
+          </div>
+
+          <!-- Home Education content -->
+          <div class="wf-mega-stage-content" id="stage-home" style="display:none;">
+            <div class="wf-mega-recommended">
+              <div class="wf-mega-col-header">Twinkl Recommends</div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+              <div class="wf-mega-rec-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Early Years</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Primary</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div>
+              <div class="wf-mega-col-header">Secondary</div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+              <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            </div>
+            <div class="wf-mega-browse-all" onclick="showStagePage('home')">Browse all Home Education resources <span class="wf-mega-browse-all__arrow"></span></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mega menu: Browse by subject -->
+      <div class="wf-megamenu" id="mega-subject" onclick="event.stopPropagation()">
+        <div class="wf-mega-header">Browse by subject</div>
+        <div class="wf-mega-subjects">
+          <div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">English</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Maths</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Science</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">History</span></div>
+          </div>
+          <div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Geography</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">RE</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">PSHE / RSHE</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Art</span></div>
+          </div>
+          <div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Design &amp; Technology</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">PE</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Music</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Computing</span></div>
+          </div>
+          <div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Languages</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Phonics</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">Early Years</span></div>
+            <div class="wf-mega-subject-pill"><div class="wf-mega-subject-pill__icon"></div><span class="wf-mega-subject-pill__text">SEND &amp; Inclusion</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mega menu: Leaders -->
+      <div class="wf-megamenu" id="mega-leaders" onclick="event.stopPropagation()">
+        <div style="display: grid; grid-template-columns: 168px repeat(4,1fr); gap: 20px;">
+          <div class="wf-mega-recommended">
+            <div class="wf-mega-col-header">Twinkl Recommends</div>
+            <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+            <div class="wf-mega-rec-link"></div><div class="wf-mega-rec-link"></div>
+            <div class="wf-mega-rec-link"></div>
+          </div>
+          <div>
+            <div class="wf-mega-col-header">School Improvement</div>
+            <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            <div class="wf-mega-link"></div>
+          </div>
+          <div>
+            <div class="wf-mega-col-header">Teaching and Learning</div>
+            <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            <div class="wf-mega-link"></div>
+          </div>
+          <div>
+            <div class="wf-mega-col-header">Leadership</div>
+            <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            <div class="wf-mega-link"></div>
+          </div>
+          <div>
+            <div class="wf-mega-col-header">Staff Development</div>
+            <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+            <div class="wf-mega-link"></div><div class="wf-mega-link"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Default page placeholder (shown until user navigates to a stage) -->
+      <div id="page-default" class="wf-page-content">
+        <div class="wf-hero">
+          <div class="wf-hero__heading"></div>
+          <div class="wf-hero__sub"></div>
+        </div>
+        <div class="wf-cards-row">
+          <div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div>
+          <div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div>
+          <div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div>
+          <div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div>
+        </div>
+      </div>
+
+      <!-- EYFS landing page -->
+      <div class="wf-stage-page" id="page-eyfs">
+        <div class="wf-stage-breadcrumb">Twinkl <span class="wf-stage-breadcrumb__sep">›</span> Early Years Foundation Stage</div>
+        <div class="wf-stage-hero">
+          <span class="wf-stage-hero__eyebrow">Ages 3–5</span>
+          <div class="wf-stage-hero__title"></div>
+          <div class="wf-stage-hero__sub"></div>
+        </div>
+        <div class="wf-stage-sections">
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Areas of Learning</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Themes and Topics</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Planning and Assessment</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KS1 landing page -->
+      <div class="wf-stage-page" id="page-ks1">
+        <div class="wf-stage-breadcrumb">Twinkl <span class="wf-stage-breadcrumb__sep">›</span> KS1</div>
+        <div class="wf-stage-hero">
+          <span class="wf-stage-hero__eyebrow">Key Stage 1 &nbsp;·&nbsp; Ages 5–7</span>
+          <div class="wf-stage-hero__title"></div>
+          <div class="wf-stage-hero__sub"></div>
+        </div>
+        <div class="wf-stage-sections">
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">English</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Maths</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Subjects</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Planning and Assessment</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KS2 landing page -->
+      <div class="wf-stage-page" id="page-ks2">
+        <div class="wf-stage-breadcrumb">Twinkl <span class="wf-stage-breadcrumb__sep">›</span> KS2</div>
+        <div class="wf-stage-hero">
+          <span class="wf-stage-hero__eyebrow">Key Stage 2 &nbsp;·&nbsp; Ages 7–11</span>
+          <div class="wf-stage-hero__title"></div>
+          <div class="wf-stage-hero__sub"></div>
+        </div>
+        <div class="wf-stage-sections">
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">English</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Maths</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Subjects</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Planning and Assessment</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KS3 landing page -->
+      <div class="wf-stage-page" id="page-ks3">
+        <div class="wf-stage-breadcrumb">Twinkl <span class="wf-stage-breadcrumb__sep">›</span> KS3</div>
+        <div class="wf-stage-hero">
+          <span class="wf-stage-hero__eyebrow">Key Stage 3 &nbsp;·&nbsp; Ages 11–14</span>
+          <div class="wf-stage-hero__title"></div>
+          <div class="wf-stage-hero__sub"></div>
+        </div>
+        <div class="wf-stage-sections">
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">English</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Maths</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Science</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">More Subjects</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KS4-5 landing page -->
+      <div class="wf-stage-page" id="page-ks4">
+        <div class="wf-stage-breadcrumb">Twinkl <span class="wf-stage-breadcrumb__sep">›</span> KS4–5</div>
+        <div class="wf-stage-hero">
+          <span class="wf-stage-hero__eyebrow">Key Stage 4–5 &nbsp;·&nbsp; Ages 14–18</span>
+          <div class="wf-stage-hero__title"></div>
+          <div class="wf-stage-hero__sub"></div>
+        </div>
+        <div class="wf-stage-sections">
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">English</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Maths</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Science</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">More Subjects</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEND landing page -->
+      <div class="wf-stage-page" id="page-send">
+        <div class="wf-stage-breadcrumb">Twinkl <span class="wf-stage-breadcrumb__sep">›</span> SEND and Inclusion</div>
+        <div class="wf-stage-hero">
+          <span class="wf-stage-hero__eyebrow">Special Educational Needs and Disabilities</span>
+          <div class="wf-stage-hero__title"></div>
+          <div class="wf-stage-hero__sub"></div>
+        </div>
+        <div class="wf-stage-sections">
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Learning Needs</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Communication</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Pastoral and Inclusion</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Education landing page -->
+      <div class="wf-stage-page" id="page-home">
+        <div class="wf-stage-breadcrumb">Twinkl <span class="wf-stage-breadcrumb__sep">›</span> Home Education</div>
+        <div class="wf-stage-hero">
+          <span class="wf-stage-hero__eyebrow">Home Education</span>
+          <div class="wf-stage-hero__title"></div>
+          <div class="wf-stage-hero__sub"></div>
+        </div>
+        <div class="wf-stage-sections">
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Early Years</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Primary</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+          <div class="wf-stage-section">
+            <div class="wf-stage-section__header"><span class="wf-stage-section__title">Secondary</span><span class="wf-stage-section__all">See all <span class="wf-stage-section__all__arrow"></span></span></div>
+            <div class="wf-cards-row"><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div><div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /desktop-layout -->
+
+    <!-- ========== MOBILE LAYOUT ========== -->
+    <div id="mobile-layout" style="display:none">
+
+      <div class="wf-mobile-header">
+        <div class="wf-mobile-logo"></div>
+        <div class="wf-mobile-search">
+          <div class="wf-mobile-search__icon"></div>
+          <span class="wf-mobile-search__text">Search...</span>
+        </div>
+        <div class="wf-hamburger" id="hamburger" onclick="setMobileState(mobileOpen?'closed':'open')">
+          <div class="wf-hamburger__line"></div>
+          <div class="wf-hamburger__line"></div>
+          <div class="wf-hamburger__line"></div>
+        </div>
+      </div>
+
+      <!-- Mobile drawer -->
+      <div class="wf-mobile-drawer" id="mobile-drawer">
+
+        <!-- Disney featured at top -->
+        <div class="wf-mob-item wf-mob-item--disney" onclick="toggleMobItem(this)">
+          <div class="wf-mob-item__left">
+            <div class="wf-mob-item__icon"></div>
+            <div>
+              <div class="wf-mob-item__label">Disney</div>
+              <div class="wf-mob-item__sub">Featured partner</div>
+            </div>
+          </div>
+          <div class="wf-mob-item__chevron"></div>
+        </div>
+        <div class="wf-mob-sub">
+          <div class="wf-mob-sub-item">Frozen<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">The Lion King<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Cars<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Encanto<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Inside Out<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Moana<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Toy Story<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Lilo &amp; Stitch<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">View all Disney<span class="wf-mob-sub-item__chevron"></span></div>
+        </div>
+
+        <div class="wf-mob-item" onclick="toggleMobItem(this)">
+          <div class="wf-mob-item__left">
+            <div class="wf-mob-item__icon"></div>
+            <div>
+              <div class="wf-mob-item__label">Browse by age</div>
+              <div class="wf-mob-item__sub">Early Years, KS1, KS2, Secondary</div>
+            </div>
+          </div>
+          <div class="wf-mob-item__chevron"></div>
+        </div>
+        <div class="wf-mob-sub">
+          <div class="wf-mob-sub-item">Early Years (3–5)<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">KS1 (5–7)<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">KS2 (7–11)<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">KS3 (11–14)<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">KS4–5 (14–18)<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">SEND &amp; Inclusion<span class="wf-mob-sub-item__chevron"></span></div>
+        </div>
+
+        <div class="wf-mob-item" onclick="toggleMobItem(this)">
+          <div class="wf-mob-item__left">
+            <div class="wf-mob-item__icon"></div>
+            <div>
+              <div class="wf-mob-item__label">Browse by subject</div>
+              <div class="wf-mob-item__sub">English, Maths, Science and more</div>
+            </div>
+          </div>
+          <div class="wf-mob-item__chevron"></div>
+        </div>
+        <div class="wf-mob-sub">
+          <div class="wf-mob-sub-item">English<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Maths<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Science<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">History<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Geography<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">All subjects<span class="wf-mob-sub-item__chevron"></span></div>
+        </div>
+
+        <div class="wf-mob-item" onclick="toggleMobItem(this)">
+          <div class="wf-mob-item__left">
+            <div class="wf-mob-item__icon"></div>
+            <div>
+              <div class="wf-mob-item__label">Leaders</div>
+              <div class="wf-mob-item__sub">School Improvement, CPD, Leadership</div>
+            </div>
+          </div>
+          <div class="wf-mob-item__chevron"></div>
+        </div>
+        <div class="wf-mob-sub">
+          <div class="wf-mob-sub-item">School Improvement<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Teaching and Learning<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Leadership<span class="wf-mob-sub-item__chevron"></span></div>
+          <div class="wf-mob-sub-item">Staff Development<span class="wf-mob-sub-item__chevron"></span></div>
+        </div>
+
+        <!-- Parents: direct link, no sub-items -->
+        <div class="wf-mob-item">
+          <div class="wf-mob-item__left">
+            <div class="wf-mob-item__icon"></div>
+            <div>
+              <div class="wf-mob-item__label">Parents</div>
+              <div class="wf-mob-item__sub">Learning or play, each step of the way</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-mob-item">
+          <div class="wf-mob-item__left">
+            <div class="wf-mob-item__icon"></div>
+            <div>
+              <div class="wf-mob-item__label">Twinkl Store</div>
+            </div>
+          </div>
+          <div class="wf-mob-item__chevron"></div>
+        </div>
+
+        <div class="wf-mob-cta">
+          <div class="wf-mob-signin">Sign In</div>
+          <div class="wf-mob-join">Join for FREE</div>
+        </div>
+
+      </div>
+
+      <!-- Mobile page content -->
+      <div class="wf-mobile-content">
+        <div class="wf-mobile-hero">
+          <div class="wf-mobile-hero__h"></div>
+          <div class="wf-mobile-hero__s"></div>
+        </div>
+        <div class="wf-mobile-cards">
+          <div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div>
+          <div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div>
+          <div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div>
+          <div class="wf-resource-card"><div class="wf-resource-card__thumb"></div><div class="wf-resource-card__body"><div class="wf-resource-card__title"></div><div class="wf-resource-card__meta"></div></div></div>
+        </div>
+      </div>
+
+    </div><!-- /mobile-layout -->
+
+  </div><!-- /browser -->
+
+  <!-- ===== ANNOTATIONS ===== -->
+  <div class="annotations-grid">
+
+    <div class="annotation">
+      <div class="annotation__tag">Decision 01</div>
+      <div class="annotation__title">Intent-based taxonomy</div>
+      <div class="annotation__body">12+ mixed items reorganised into intent-based categories: Browse by age and Browse by subject serve teachers finding resources; Leaders and Parents serve distinct non-teacher audiences with their own product hubs; Twinkl Store is isolated as a transactional destination. Each item maps to a single user intent rather than mixing audience types, age bands, and commercial destinations in one flat list.</div>
+    </div>
+
+    <div class="annotation">
+      <div class="annotation__tag">Decision 02</div>
+      <div class="annotation__title">Curriculum stages over age bands</div>
+      <div class="annotation__body">The age dropdown uses UK curriculum stages (Early Years, KS1, KS2, KS3, KS4-5) as column headers, with age ranges shown as secondary labels. Teachers think in key stages, not raw age numbers.</div>
+    </div>
+
+    <div class="annotation">
+      <div class="annotation__tag">Decision 03</div>
+      <div class="annotation__title">Split button: two explicit click targets</div>
+      <div class="annotation__body">The label text links to the category landing page on click. The chevron opens the mega menu on click. No hover dependency, no delay, no ambiguity. Separate hover states on each target reinforce that the two elements do different things.</div>
+    </div>
+
+    <div class="annotation">
+      <div class="annotation__tag">Decision 04</div>
+      <div class="annotation__title">Single primary CTA</div>
+      <div class="annotation__body">Join for FREE is the only filled button in the header. Sign In, School Enquiries and the language selector are grouped as secondary utility links. The trial button is removed from the nav entirely and surfaced post-login.</div>
+    </div>
+
+    <div class="annotation">
+      <div class="annotation__tag">Decision 05</div>
+      <div class="annotation__title">Disney as distinct featured partner</div>
+      <div class="annotation__body">Disney uses a pill with a background and border that is visually different from both the resting and hover states of standard nav items. It leads the nav row to signal prominence without polluting the primary taxonomy.</div>
+    </div>
+
+    <div class="annotation">
+      <div class="annotation__tag">Decision 06</div>
+      <div class="annotation__title">Two-panel mega menu: stage selector + stage-specific content</div>
+      <div class="annotation__body">Each stage has a content panel matched to its curriculum context. EYFS shows Areas of Learning and Themes; KS1 and KS2 promote English and Maths as dedicated columns alongside Subjects and Planning; KS3 and KS4-5 switch to subject-specific columns (English, Maths, Science, More Subjects), reflecting secondary browsing patterns. Twinkl Recommends is persistent across all stages as an editorial anchor.</div>
+    </div>
+
+  </div>
+
+  <script>
+    var currentDesktopState = 'closed';
+    var mobileOpen = false;
+
+    /* ---------- Stage landing page ---------- */
+    function showStagePage(stage) {
+      document.getElementById('page-default').style.display = 'none';
+      document.querySelectorAll('.wf-stage-page').forEach(function(p) {
+        p.classList.remove('is-visible');
+      });
+      var page = document.getElementById('page-' + stage);
+      if (page) page.classList.add('is-visible');
+      setDesktopState('closed');
+    }
+
+    /* ---------- Viewport toggle ---------- */
+    function setViewport(vp) {
+      var browser     = document.getElementById('browser');
+      var desktopEl   = document.getElementById('desktop-layout');
+      var mobileEl    = document.getElementById('mobile-layout');
+      var dStates     = document.getElementById('desktop-states');
+      var mStates     = document.getElementById('mobile-states');
+      var btnD        = document.getElementById('vp-desktop');
+      var btnM        = document.getElementById('vp-mobile');
+
+      if (vp === 'desktop') {
+        browser.className    = 'browser is-desktop';
+        desktopEl.style.display = '';
+        mobileEl.style.display  = 'none';
+        dStates.style.display   = '';
+        mStates.style.display   = 'none';
+        btnD.className = 'ctrl-btn ctrl-btn--active';
+        btnM.className = 'ctrl-btn ctrl-btn--inactive';
+      } else {
+        browser.className    = 'browser is-mobile';
+        desktopEl.style.display = 'none';
+        mobileEl.style.display  = '';
+        dStates.style.display   = 'none';
+        mStates.style.display   = '';
+        btnD.className = 'ctrl-btn ctrl-btn--inactive';
+        btnM.className = 'ctrl-btn ctrl-btn--active';
+      }
+    }
+
+    /* ---------- Stage selector (within age mega menu) ---------- */
+    function setStage(el, stage) {
+      ['stage-eyfs','stage-ks1','stage-ks2','stage-ks3','stage-ks4','stage-send','stage-home'].forEach(function(id) {
+        var p = document.getElementById(id);
+        if (p) p.style.display = 'none';
+      });
+      document.querySelectorAll('.wf-mega-stage-btn').forEach(function(btn) {
+        btn.classList.remove('is-active');
+      });
+      var panel = document.getElementById('stage-' + stage);
+      if (panel) panel.style.display = 'grid';
+      el.classList.add('is-active');
+    }
+
+    /* ---------- Desktop state toggle — keeps state buttons in sync ---------- */
+    function setDesktopState(state) {
+      ['mega-disney','mega-age','mega-subject','mega-leaders'].forEach(function(id) {
+        document.getElementById(id).classList.remove('is-visible');
+      });
+      ['nav-age','nav-subject','nav-leaders'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.remove('is-open');
+      });
+      ['st-closed','st-disney','st-age','st-subject','st-leaders'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.className = 'ctrl-btn ctrl-btn--inactive';
+      });
+
+      currentDesktopState = state;
+
+      if (state === 'disney') {
+        document.getElementById('mega-disney').classList.add('is-visible');
+        document.getElementById('st-disney').className = 'ctrl-btn ctrl-btn--active';
+      } else if (state === 'age') {
+        document.getElementById('mega-age').classList.add('is-visible');
+        document.getElementById('nav-age').classList.add('is-open');
+        document.getElementById('st-age').className = 'ctrl-btn ctrl-btn--active';
+      } else if (state === 'subject') {
+        document.getElementById('mega-subject').classList.add('is-visible');
+        document.getElementById('nav-subject').classList.add('is-open');
+        document.getElementById('st-subject').className = 'ctrl-btn ctrl-btn--active';
+      } else if (state === 'leaders') {
+        document.getElementById('mega-leaders').classList.add('is-visible');
+        document.getElementById('nav-leaders').classList.add('is-open');
+        document.getElementById('st-leaders').className = 'ctrl-btn ctrl-btn--active';
+      } else {
+        document.getElementById('st-closed').className = 'ctrl-btn ctrl-btn--active';
+      }
+    }
+
+    /* Clicking anywhere on a split nav item toggles its dropdown */
+    function handleSplitClick(e, key) {
+      e.stopPropagation();
+      setDesktopState(currentDesktopState === key ? 'closed' : key);
+    }
+
+    /* Clicking outside the nav/megamenu closes any open dropdown */
+    document.addEventListener('click', function() {
+      if (currentDesktopState !== 'closed') setDesktopState('closed');
+    });
+
+    /* ---------- Mobile state toggle — keeps state buttons in sync ---------- */
+    function setMobileState(state) {
+      mobileOpen = (state === 'open');
+      var drawer    = document.getElementById('mobile-drawer');
+      var hamburger = document.getElementById('hamburger');
+      var btnC      = document.getElementById('mob-closed');
+      var btnO      = document.getElementById('mob-open');
+
+      if (mobileOpen) {
+        drawer.classList.add('is-open');
+        hamburger.classList.add('is-open');
+        btnC.className = 'ctrl-btn ctrl-btn--inactive';
+        btnO.className = 'ctrl-btn ctrl-btn--active';
+      } else {
+        drawer.classList.remove('is-open');
+        hamburger.classList.remove('is-open');
+        // Collapse any expanded drawer items
+        document.querySelectorAll('.wf-mob-item.is-expanded').forEach(function(el) {
+          el.classList.remove('is-expanded');
+        });
+        document.querySelectorAll('.wf-mob-sub').forEach(function(el) {
+          el.style.maxHeight = '0';
+        });
+        btnC.className = 'ctrl-btn ctrl-btn--active';
+        btnO.className = 'ctrl-btn ctrl-btn--inactive';
+      }
+    }
+
+    /* Mobile drawer accordion — clicking a drawer item expands sub-links */
+    function toggleMobItem(el) {
+      var sub = el.nextElementSibling;
+      if (!sub || !sub.classList.contains('wf-mob-sub')) return;
+      var isOpen = el.classList.contains('is-expanded');
+      // Collapse all
+      document.querySelectorAll('.wf-mob-item.is-expanded').forEach(function(item) {
+        item.classList.remove('is-expanded');
+      });
+      document.querySelectorAll('.wf-mob-sub').forEach(function(s) {
+        s.style.maxHeight = '0';
+      });
+      // Expand clicked item if it was closed
+      if (!isOpen) {
+        el.classList.add('is-expanded');
+        sub.style.maxHeight = sub.scrollHeight + 'px';
+        // Sync state buttons if menu was closed
+        if (!mobileOpen) setMobileState('open');
+      }
+    }
+
+    /* ---------- URL param: ?state=age etc. to set initial state on load ---------- */
+    (function() {
+      var param = new URLSearchParams(window.location.search).get('state');
+      if (param) setDesktopState(param);
+    })();
+  </script>
+
+</body>
+</html>

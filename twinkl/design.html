@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="rotamaster">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twinkl Nav Redesign: Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Nav wireframe snapshot components */
+    .nav-snap { background: #fff; border: 1px solid #e8e8e8; border-radius: 8px; overflow: hidden; }
+    .nav-snap-row1 { height: 44px; border-bottom: 1px solid #ececec; display: flex; align-items: center; padding: 0 16px; gap: 10px; }
+    .nav-snap-logo { width: 56px; height: 18px; background: #555; border-radius: 3px; flex-shrink: 0; }
+    .nav-snap-search { flex: 1; height: 28px; background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 6px; }
+    .nav-snap-util { display: flex; align-items: center; gap: 10px; }
+    .nav-snap-util-link { height: 8px; background: #e8e8e8; border-radius: 2px; }
+    .nav-snap-signin { width: 52px; height: 24px; border: 1.5px solid #aaa; border-radius: 5px; flex-shrink: 0; }
+    .nav-snap-join { width: 72px; height: 24px; background: #555; border-radius: 5px; flex-shrink: 0; }
+    .nav-snap-row2 { height: 36px; border-bottom: 1px solid #ddd; display: flex; align-items: stretch; padding: 0 16px; }
+    .nav-snap-disney { display: flex; align-items: center; gap: 5px; height: 22px; margin: auto 12px auto 0; padding: 0 10px; background: #e6e6e6; border: 1.5px solid #d0d0d0; border-radius: 5px; font-size: 10px; font-weight: 700; color: #555; flex-shrink: 0; }
+    .nav-snap-disney__dot { width: 10px; height: 10px; border-radius: 50%; background: #ccc; }
+    .nav-snap-item { display: flex; align-items: center; padding: 0 10px; font-size: 10px; font-weight: 700; color: #777; white-space: nowrap; border-right: 1px solid #eee; gap: 4px; }
+    .nav-snap-item--active { border-bottom: 3px solid #999; color: #333; background: #fafafa; }
+    .nav-snap-chevron { font-size: 7px; }
+    .nav-snap-parents { display: flex; align-items: center; padding: 0 10px; font-size: 10px; font-weight: 700; color: #777; border-right: 1px solid #eee; }
+    .nav-snap-store { margin-left: auto; display: flex; align-items: center; padding: 0 10px; font-size: 10px; font-weight: 700; color: #555; }
+    .nav-snap-mega { border-top: 1px solid #eee; display: flex; min-height: 200px; }
+    .nav-snap-stages { width: 130px; flex-shrink: 0; border-right: 1px solid #eee; padding: 4px 0; }
+    .nav-snap-stage { padding: 7px 12px; font-size: 10px; color: #555; border-left: 3px solid transparent; }
+    .nav-snap-stage--active { border-left-color: #999; background: #f5f5f5; color: #333; font-weight: 700; }
+    .nav-snap-panel { flex: 1; padding: 14px 16px; display: grid; grid-template-columns: 120px repeat(3, 1fr); gap: 16px; }
+    .nav-snap-panel--wide { grid-template-columns: 120px repeat(4, 1fr); }
+    .nav-snap-col-head { font-size: 9px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
+    .nav-snap-link { height: 7px; background: #e0e0e0; border-radius: 2px; margin-bottom: 6px; }
+    .nav-snap-rec { background: #fafafa; border-radius: 6px; padding: 8px 10px; }
+    .nav-snap-browse-all { grid-column: 1 / -1; border-top: 1px solid #eee; padding-top: 10px; font-size: 10px; font-weight: 700; color: #555; }
+
+    /* Interactive iframe container */
+    .wf-iframe-wrap { border-radius: 8px; overflow: hidden; border: 1px solid #e8e8e8; }
+    .wf-iframe-wrap iframe { display: block; width: 100%; height: 680px; border: none; }
+  </style>
+</head>
+<body>
+
+  <div class="layout">
+
+  <nav class="sidebar">
+    <div class="sidebar__project">
+      <img src="images/twinkl_logo_cropped_300px.png" alt="Client logo" class="sidebar__logo">
+      <p class="body-bold" style="color: var(--color-text-primary)">Twinkl Nav Redesign</p>
+      <p class="body-x-small" style="color: var(--color-text-secondary); margin-top: 4px;">Redesigning the top navigation experience</p>
+    </div>
+    <div class="sidebar__nav">
+      <a href="introduction.html" class="sidebar__link">Introduction</a>
+      <a href="overview.html" class="sidebar__link">Overview</a>
+      <a href="discovery.html" class="sidebar__link">Discovery</a>
+      <a href="design.html" class="sidebar__link active">Design</a>
+      <a href="development.html" class="sidebar__link">Development</a>
+      <a href="release.html" class="sidebar__link">Release</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <div class="page-title">
+      <div class="page-title__inner">
+        <p class="body-x-small" style="color: var(--color-text-primary)">21 May 2026</p>
+        <h1 style="color: var(--color-text-primary)">Design</h1>
+        <p class="body-lead" style="color: var(--color-text-secondary); margin-top: 4px;">Wireframes, prototypes, and decisions</p>
+      </div>
+    </div>
+
+    <div class="page-intro">
+      <div class="page-intro__inner intro-text">
+        <p>The design phase focused on restructuring Twinkl's top navigation from a flat, mixed-intent list into a clear taxonomy built around how different users actually browse. Low-fidelity wireframing was used to test structural decisions quickly before committing to high-fidelity work.</p>
+        <p>&nbsp;</p>
+        <ul>
+          <li>Low-fidelity wireframe covering desktop and mobile nav states</li>
+          <li>Interactive prototype with viewport toggle, dropdown states, and stage landing pages</li>
+          <li>6 annotated design decisions covering taxonomy, interaction pattern, CTA hierarchy, and mega menu structure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sections">
+
+      <div class="card--brand">
+        <div class="card-header">
+          <h2 style="color: var(--color-text-light)">Design direction</h2>
+        </div>
+        <p class="body" style="color: var(--color-text-light)">
+          The redesign replaces a flat, 12-item nav that mixed audience types, age bands, and commercial destinations with a small set of intent-based categories. Each item maps to a single user goal. The split button pattern resolves the longstanding dual-function problem on age items, and the two-panel mega menu lets users navigate by curriculum stage without leaving the nav.
+        </p>
+      </div>
+
+      <!-- Wireframe snapshot 1: nav closed -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Wireframe: Desktop nav — closed state</h3>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary)">The redesigned nav bar at rest. 12+ mixed items collapsed into five intent-based categories. Disney leads as a visually distinct featured partner; Browse by age and Browse by subject serve teacher resource discovery; Leaders and Parents serve distinct non-teacher audiences; Twinkl Store sits at the far right as an isolated transactional destination.</p>
+
+        <div class="wireframe-frame">
+          <div class="wireframe-label">Desktop &nbsp;&bull;&nbsp; Nav closed &nbsp;&bull;&nbsp; Low fidelity</div>
+          <div class="wireframe-body" style="max-width: 100%; padding: 16px;">
+            <div class="nav-snap">
+              <div class="nav-snap-row1">
+                <div class="nav-snap-logo"></div>
+                <div class="nav-snap-search"></div>
+                <div class="nav-snap-util">
+                  <div class="nav-snap-util-link" style="width:70px;"></div>
+                  <div class="nav-snap-util-link" style="width:28px;"></div>
+                  <div class="nav-snap-util-link" style="width:46px;"></div>
+                </div>
+                <div class="nav-snap-signin"></div>
+                <div class="nav-snap-join"></div>
+              </div>
+              <div class="nav-snap-row2">
+                <div class="nav-snap-disney"><div class="nav-snap-disney__dot"></div>Disney <span class="nav-snap-chevron">▾</span></div>
+                <div class="nav-snap-item">Browse by age <span class="nav-snap-chevron">▾</span></div>
+                <div class="nav-snap-item">Browse by subject <span class="nav-snap-chevron">▾</span></div>
+                <div class="nav-snap-item">Leaders <span class="nav-snap-chevron">▾</span></div>
+                <div class="nav-snap-parents">Parents</div>
+                <div class="nav-snap-store">Twinkl Store</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2col" style="margin-top: 0;">
+          <div class="info-card">
+            <div class="badge">01</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Intent-based taxonomy</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Items are grouped by what users are trying to do, not by product type or audience. Each nav item maps to a single user intent, eliminating the current ambiguity between age bands, audience segments, and commercial links.</p>
+          </div>
+          <div class="info-card">
+            <div class="badge">02</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Single primary CTA</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Join for FREE is the only filled button in the utility bar. Sign In, School Enquiries, and the language selector are grouped as low-emphasis utility links. The trial button is removed from the nav entirely.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wireframe snapshot 2: Browse by age mega menu open -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Wireframe: Desktop nav — Browse by age open</h3>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary)">Clicking the chevron on Browse by age opens a two-panel mega menu. The left panel lists all curriculum stages; selecting a stage updates the right panel to show stage-specific content columns. A persistent "Browse all" link at the foot of each panel navigates to the full stage landing page.</p>
+
+        <div class="wireframe-frame">
+          <div class="wireframe-label">Desktop &nbsp;&bull;&nbsp; Browse by age open &nbsp;&bull;&nbsp; Low fidelity</div>
+          <div class="wireframe-body" style="max-width: 100%; padding: 16px;">
+            <div class="nav-snap">
+              <div class="nav-snap-row1">
+                <div class="nav-snap-logo"></div>
+                <div class="nav-snap-search"></div>
+                <div class="nav-snap-util">
+                  <div class="nav-snap-util-link" style="width:70px;"></div>
+                  <div class="nav-snap-util-link" style="width:28px;"></div>
+                  <div class="nav-snap-util-link" style="width:46px;"></div>
+                </div>
+                <div class="nav-snap-signin"></div>
+                <div class="nav-snap-join"></div>
+              </div>
+              <div class="nav-snap-row2">
+                <div class="nav-snap-disney"><div class="nav-snap-disney__dot"></div>Disney <span class="nav-snap-chevron">▾</span></div>
+                <div class="nav-snap-item nav-snap-item--active">Browse by age <span class="nav-snap-chevron">▾</span></div>
+                <div class="nav-snap-item">Browse by subject <span class="nav-snap-chevron">▾</span></div>
+                <div class="nav-snap-item">Leaders <span class="nav-snap-chevron">▾</span></div>
+                <div class="nav-snap-parents">Parents</div>
+                <div class="nav-snap-store">Twinkl Store</div>
+              </div>
+              <div class="nav-snap-mega">
+                <div class="nav-snap-stages">
+                  <div class="nav-snap-stage nav-snap-stage--active">Early Years</div>
+                  <div class="nav-snap-stage">KS1</div>
+                  <div class="nav-snap-stage">KS2</div>
+                  <div class="nav-snap-stage">KS3</div>
+                  <div class="nav-snap-stage">KS4–5</div>
+                  <div class="nav-snap-stage">SEND &amp; Inclusion</div>
+                  <div class="nav-snap-stage">Home Education</div>
+                </div>
+                <div class="nav-snap-panel">
+                  <div class="nav-snap-rec">
+                    <div class="nav-snap-col-head">Twinkl Recommends</div>
+                    <div class="nav-snap-link" style="width:90%;"></div>
+                    <div class="nav-snap-link" style="width:72%;"></div>
+                    <div class="nav-snap-link" style="width:85%;"></div>
+                    <div class="nav-snap-link" style="width:65%;"></div>
+                    <div class="nav-snap-link" style="width:78%;"></div>
+                  </div>
+                  <div>
+                    <div class="nav-snap-col-head">Areas of Learning</div>
+                    <div class="nav-snap-link" style="width:88%;"></div>
+                    <div class="nav-snap-link" style="width:70%;"></div>
+                    <div class="nav-snap-link" style="width:80%;"></div>
+                    <div class="nav-snap-link" style="width:60%;"></div>
+                    <div class="nav-snap-link" style="width:75%;"></div>
+                  </div>
+                  <div>
+                    <div class="nav-snap-col-head">Themes and Topics</div>
+                    <div class="nav-snap-link" style="width:82%;"></div>
+                    <div class="nav-snap-link" style="width:66%;"></div>
+                    <div class="nav-snap-link" style="width:90%;"></div>
+                    <div class="nav-snap-link" style="width:58%;"></div>
+                  </div>
+                  <div>
+                    <div class="nav-snap-col-head">Planning and Assessment</div>
+                    <div class="nav-snap-link" style="width:78%;"></div>
+                    <div class="nav-snap-link" style="width:62%;"></div>
+                    <div class="nav-snap-link" style="width:85%;"></div>
+                    <div class="nav-snap-link" style="width:70%;"></div>
+                  </div>
+                  <div class="nav-snap-browse-all">Browse all Early Years resources &rsaquo;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2col" style="margin-top: 0;">
+          <div class="info-card">
+            <div class="badge">03</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Split button pattern</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The label text navigates to the category landing page on click. The chevron opens the mega menu. No hover dependency, no delay, and no ambiguity. This directly resolves the user testing finding that dual-function hover items caused confusion and missed clicks.</p>
+          </div>
+          <div class="info-card">
+            <div class="badge">04</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Stage-specific content panels</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Each curriculum stage shows a different right panel. EYFS shows Areas of Learning; KS1 and KS2 promote English and Maths as dedicated columns; KS3 and above switch to secondary subject columns. The left panel allows switching stages without closing the menu.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive wireframe -->
+      <div class="card">
+        <div class="card-header" style="display: flex; align-items: center; justify-content: space-between;">
+          <h3 style="color: var(--color-text-primary)">Interactive wireframe</h3>
+          <a href="wireframe.html" target="_blank" class="figma-link-btn">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 1H11V5.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 1L5 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M5 2H2C1.45 2 1 2.45 1 3V10C1 10.55 1.45 11 2 11H9C9.55 11 10 10.55 10 10V7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Open wireframe
+          </a>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary)">A fully interactive low-fidelity wireframe of the redesigned nav. Use the Viewport controls to toggle between desktop (1080px) and mobile (390px). On desktop, use the State controls to preview the Disney, Browse by age, Browse by subject, and Leaders dropdowns. Select a curriculum stage in the age menu and click Browse all to navigate to that stage's landing page layout.</p>
+
+        <div class="wf-iframe-wrap">
+          <iframe src="wireframe.html" title="Interactive nav wireframe"></iframe>
+        </div>
+      </div>
+
+      <!-- High-fidelity prototype -->
+      <div class="card">
+        <div class="card-header" style="display: flex; align-items: center; justify-content: space-between;">
+          <h3 style="color: var(--color-text-primary)">High-fidelity prototype</h3>
+          <a href="figma-designs.html" target="_blank" class="figma-link-btn">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.5 1H11V5.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 1L5 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M5 2H2C1.45 2 1 2.45 1 3V10C1 10.55 1.45 11 2 11H9C9.55 11 10 10.55 10 10V7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            View in Figma
+          </a>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary)">[Description of the high-fidelity prototype: what it covers, how many rounds of iteration led here, and how it was tested.]</p>
+
+        <div class="wireframe-frame wireframe-frame--hifi">
+          <div class="wireframe-label">High fidelity &nbsp;&bull;&nbsp; Figma prototype</div>
+          <div class="wireframe-body wireframe-body--hifi">
+            <img src="images/hifi_prototype.png" alt="High-fidelity prototype" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+          </div>
+        </div>
+
+        <div class="grid-3col" style="margin-top: 0;">
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">XX seconds</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Stat description. Explain what this measures and how it compares to the baseline.]</p>
+          </div>
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">X out of X</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Stat description. Explain what this measures and how it compares to the baseline.]</p>
+          </div>
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">XX% less [metric]</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">[Stat description. Explain what this measures and how it compares to the baseline.]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design decisions -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Design decisions</h3>
+        </div>
+        <div class="grid-2col">
+
+          <div class="info-card">
+            <div class="badge">01</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Curriculum stages over age bands</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The age dropdown uses UK curriculum stages (Early Years, KS1, KS2, KS3, KS4-5) as the primary label, with raw age ranges shown as secondary text. Teachers think in key stages, not ages — using stage labels reduces the cognitive step of translating "my class is 8" into the right category.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">02</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Disney as a distinct featured partner</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Disney uses a pill with a background and border visually distinct from the resting and hover states of standard nav items. It leads the nav row to signal commercial prominence without polluting the primary taxonomy. Its mega menu shows all 18 franchise titles directly, with no sub-categorisation needed at this level.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">03</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Leaders and Parents as named audience hubs</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Leaders and Parents are distinct audiences with their own product hubs and editorial positioning. Folding them into a generic "For schools" item loses the brand recognition Twinkl has built. Parents has no dropdown — it is a direct link, consistent with how Twinkl's current nav already treats it.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">04</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Browse all as a mega menu escape hatch</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Each stage panel includes a full-width "Browse all [stage] resources" link spanning all columns. This gives users who open the menu via the chevron a clear route to the stage landing page, without requiring them to close the menu and click the label text separately.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  </div><!-- /layout -->
+
+  <script src="js/script.js"></script>
+</body>
+</html>
