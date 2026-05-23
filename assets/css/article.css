@@ -1,0 +1,506 @@
+/* ─── Article page wrapper ─────────────────────────────────── */
+body.page-article {
+  background: var(--surface-primary);
+}
+
+.page-article .wrapper {
+  max-width: calc(1600px + (var(--pad) * 2));
+}
+
+/* ─── Article content column ───────────────────────────────── */
+.article-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ─── Back link ─────────────────────────────────────────────── */
+.article-back-row {
+  padding: var(--pad) 0;
+}
+
+.article-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--size-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.article-back-link:hover {
+  text-decoration: underline;
+}
+
+/* ─── Title block ────────────────────────────────────────────── */
+.article-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: var(--pad) 0;
+}
+
+.article-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 50px;
+  color: var(--text-primary);
+}
+
+.article-date {
+  font-size: var(--size-body-xs);
+  font-weight: 400;
+  line-height: var(--lh-body-xs);
+  color: var(--text-secondary);
+}
+
+.article-lead {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--text-secondary);
+}
+
+/* ─── Section break ──────────────────────────────────────────── */
+.article-break {
+  height: 1px;
+  background: var(--border);
+  margin: var(--section-padding-small) 0;
+  flex-shrink: 0;
+}
+
+/* ─── Content area ───────────────────────────────────────────── */
+.article-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+/* ─── Section ────────────────────────────────────────────────── */
+.article-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.article-section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: var(--pad) 0;
+}
+
+.article-section-inner .btn-outline,
+.article-section-inner .btn-primary {
+  align-self: flex-start;
+}
+
+/* ─── Headings ───────────────────────────────────────────────── */
+.article-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--text-primary);
+}
+
+.article-heading-sm {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 28px;
+  color: var(--text-primary);
+}
+
+/* ─── Body text ──────────────────────────────────────────────── */
+.article-body {
+  font-size: var(--size-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+}
+
+.article-body p + p {
+  margin-top: var(--lh-body);
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 27px;
+  margin: 0;
+}
+
+.article-body li {
+  line-height: var(--lh-body);
+}
+
+.article-body li + li {
+  margin-top: 4px;
+}
+
+/* ─── Side-by-side columns ───────────────────────────────────── */
+.article-cols {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.article-col {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ─── Image block ────────────────────────────────────────────── */
+.article-image-block {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.article-image-block img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── Image pair (side by side) ─────────────────────────────── */
+.article-image-pair {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.article-image-pair .article-image-block {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 560px) {
+  .article-image-pair {
+    flex-direction: column;
+  }
+}
+
+/* ─── Side-by-side comparison ────────────────────────────────── */
+.article-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  width: 100%;
+}
+
+.article-compare-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px 24px;
+}
+
+.article-compare-col--old {
+  background: var(--surface-subtle);
+  border-right: 1px solid var(--border);
+}
+
+.article-compare-col--new {
+  background: var(--surface-primary);
+}
+
+.article-compare-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.article-compare-label {
+  font-size: var(--size-body-xs);
+  font-weight: 700;
+  line-height: var(--lh-body-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.article-compare-tool {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 28px;
+  color: var(--text-primary);
+}
+
+.article-compare-time {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--text-primary);
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.article-compare-col--new .article-compare-time {
+  color: var(--states-primary-default);
+}
+
+.article-compare-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 20px;
+  margin: 0;
+  font-size: var(--size-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+}
+
+.article-compare-list--ordered {
+  list-style: decimal;
+}
+
+.article-compare-list li::marker {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.article-compare-list strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  .article-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .article-compare-col--old {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+/* ─── Figma-style comparison table (act = article compare table) */
+.act {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.act__row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  background: var(--surface-subtle);
+}
+
+.act__row--header {
+  align-items: flex-end;
+  padding-bottom: 20px;
+}
+
+.act__attr {
+  flex-shrink: 0;
+  width: 150px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-secondary);
+}
+
+.act__cell {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-primary);
+}
+
+.act__cell--bold {
+  font-size: var(--size-body);
+  line-height: var(--lh-body);
+  font-weight: 700;
+}
+
+.act__col-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.act__col-identity {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.act__col-tool {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 16px;
+  color: var(--text-primary);
+}
+
+.act__col-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.act__col-icon--figma {
+  width: 27px;
+}
+
+/* ── Two-column variant (no attr column) ─────────────────── */
+.act--two-col .act__row {
+  padding-left: 16px;
+}
+
+.act__cell--empty {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    var(--border) 4px,
+    var(--border) 5px
+  );
+  opacity: 0.4;
+}
+
+/* ── Tablet: tighten the attr column ───────────────── 768px */
+@media (max-width: 768px) {
+  .act__attr {
+    width: 110px;
+  }
+}
+
+/* ── Mobile: stack attr label above the two cells ──── 560px */
+@media (max-width: 560px) {
+  .act__row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  /* Attr label spans full width */
+  .act__attr {
+    width: 100%;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Two value cells sit side by side below the label */
+  .act__cell {
+    flex: 1;
+    font-size: 15px;
+  }
+
+  /* Header: hide the empty attr placeholder so columns share full width */
+  .act__row--header .act__attr {
+    display: none;
+  }
+
+  .act__row--header {
+    gap: 12px;
+    padding-bottom: 16px;
+  }
+
+  .act__col-tool {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .act__col-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .act__col-icon--figma {
+    width: 19px;
+  }
+}
+
+/* ─── Pull quote ─────────────────────────────────────────────── */
+.article-pull-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+/* ─── Next / Previous bar ────────────────────────────────────── */
+.article-next-prev-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--pad) 0;
+  width: 100%;
+}
+
+.article-prev-link,
+.article-next-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-prev-link:hover,
+.article-next-link:hover {
+  color: var(--states-primary-hover);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .article-title {
+    font-size: clamp(32px, 4.5vw, 48px);
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 768px) {
+  .article-title {
+    font-size: clamp(28px, 7vw, 40px);
+    line-height: 1.1;
+  }
+
+  .article-heading {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .article-cols {
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  .article-pull-quote {
+    font-size: 18px;
+  }
+}
