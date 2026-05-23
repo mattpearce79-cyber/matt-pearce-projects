@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Twinkl Web Navigation — Interview Presentation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="slides.css">
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<deck-stage>
+
+  <!-- ============================================================ -->
+  <!-- 01 · Title                                                    -->
+  <!-- ============================================================ -->
+  <section data-screen-label="01 Title" class="slide slide--title">
+    <div class="title__bg">
+      <span class="cloud cloud--1"></span>
+      <span class="cloud cloud--2"></span>
+      <span class="cloud cloud--3"></span>
+    </div>
+    <div class="title__content">
+      <img class="title__logo" src="../assets/twinkl-logo-on-blue.jpg" alt="Twinkl" />
+      <p class="eyebrow eyebrow--light">Senior / Lead Product Designer · Interview task</p>
+      <h1 class="display title__h1">
+        Helping 1.5&nbsp;million resources<br/>
+        find the right user.
+      </h1>
+      <p class="title__sub">A redesign of the twinkl.co.uk top navigation.</p>
+      <div class="title__meta">
+        <span>14 slides · ~10 minutes</span>
+        <span class="dot">·</span>
+        <span>Web · Mobile</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 02 · The brief                                                -->
+  <!-- ============================================================ -->
+  <section data-screen-label="02 Brief" class="slide slide--brief">
+    <div class="slide__inner two-col">
+      <div>
+        <p class="eyebrow">The brief, in one line</p>
+        <h2 class="h-xl">Redesign the top nav, balancing Twinkl's breadth with a manageable, easy, reliable&nbsp;experience.</h2>
+        <p class="body-lg">
+          Twinkl currently offers <b>1.5M+ resources</b> across <b>K&#8211;12, every subject,
+          every region, and every age group</b>. The current top nav is asked to be
+          a search starting point, a category browser, a region switcher, and a
+          subscription upsell — all at once.
+        </p>
+      </div>
+      <div class="brief-stats">
+        <div class="stat"><span class="stat__num">1.5M+</span><span class="stat__lbl">resources to surface</span></div>
+        <div class="stat"><span class="stat__num">12</span><span class="stat__lbl">primary nav items, today</span></div>
+        <div class="stat"><span class="stat__num">5</span><span class="stat__lbl">mega-nav columns</span></div>
+        <div class="stat"><span class="stat__num">2</span><span class="stat__lbl">destinations to redesign</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 03 · Audit                                                    -->
+  <!-- ============================================================ -->
+  <section data-screen-label="03 Audit" class="slide slide--audit">
+    <div class="slide__inner">
+      <p class="eyebrow">Audit · existing top nav</p>
+      <h2 class="h-lg">Six things asking for the user's attention at once.</h2>
+      <div class="audit-grid audit-grid--six">
+        <div class="audit-shot">
+          <img src="../assets/reference-mega-nav.png" alt="Existing Twinkl mega nav" />
+          <span class="pin pin--p1">1</span>
+          <span class="pin pin--p2">2</span>
+          <span class="pin pin--p3">3</span>
+          <span class="pin pin--p4">4</span>
+          <span class="pin pin--p5">5</span>
+          <span class="pin pin--p6">6</span>
+        </div>
+        <ol class="audit-list audit-list--six">
+          <li>
+            <span class="pin pin--inline pin--p1">1</span>
+            <b>Competing CTAs.</b> Logo, <i>£0.00 Twinkl Trial</i>, <i>Join for FREE</i> all shout for the click. Three primary buttons within a 200&nbsp;px stretch.
+          </li>
+          <li>
+            <span class="pin pin--inline pin--p2">2</span>
+            <b>Lost utility.</b> School Enquiries, the language flag, and Sign In sit between the loud CTAs — quietly important but visually dismissed.
+          </li>
+          <li>
+            <span class="pin pin--inline pin--p3">3</span>
+            <b>No label on language.</b> The flag is the entire affordance — accessible only if you recognise St George's Cross.
+          </li>
+          <li>
+            <span class="pin pin--inline pin--p4">4</span>
+            <b>Disney link clashes.</b> The brand chip is rendered in exactly the colour the other nav items adopt on hover — users mistake it for a "selected" state.
+          </li>
+          <li>
+            <span class="pin pin--inline pin--p5">5</span>
+            <b>Dual-function nav items.</b> Hover opens a mega menu; click takes you to a landing page. Same target, two outcomes, no signposting.
+          </li>
+          <li>
+            <span class="pin pin--inline pin--p6">6</span>
+            <b>Hover delay reads as a dead control.</b> The reveal lag (~200&nbsp;ms) makes users believe the chip didn't respond and they click — pre-empting the menu.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 04 · User research                                            -->
+  <!-- ============================================================ -->
+  <section data-screen-label="04 Research" class="slide slide--research">
+    <div class="slide__inner">
+      <p class="eyebrow">User research · 3 participants · 1 directed task</p>
+      <h2 class="h-lg">Click won every time.</h2>
+
+      <div class="res2-grid">
+        <!-- Left: task timings -->
+        <div class="res2-left">
+          <p class="res2-task"><b>Task:</b> &ldquo;Find Year&nbsp;1 phonics reading comprehension resources, starting from the homepage.&rdquo;</p>
+          <div class="res2-users">
+            <div class="res2-user">
+              <div class="res2-avatar" style="background:#FCE6F1;color:#971156">U1</div>
+              <div class="res2-time">47<small>s</small></div>
+              <div class="res2-lbl">Primary user, England</div>
+            </div>
+            <div class="res2-user">
+              <div class="res2-avatar" style="background:#E6F4FE;color:#07457E">U2</div>
+              <div class="res2-time">38<small>s</small></div>
+              <div class="res2-lbl">Trainee, NQT</div>
+            </div>
+            <div class="res2-user">
+              <div class="res2-avatar" style="background:#F0E7F6;color:#4A1471">U3</div>
+              <div class="res2-time">56<small>s</small></div>
+              <div class="res2-lbl">Homeschool parent</div>
+            </div>
+          </div>
+          <div class="res2-avg">
+            <div>
+              <span class="res2-avg-lbl">Mean time-on-task</span>
+              <span class="res2-avg-num">47<small>s</small></span>
+            </div>
+            <div class="res2-avg-tag">High variance — task is unguided.</div>
+          </div>
+        </div>
+
+        <!-- Right: observation list -->
+        <div class="res2-right">
+          <h3 class="res2-h">What we observed</h3>
+          <ul class="res2-list">
+            <li><b>3 / 3</b> users clicked the nav item rather than waiting for hover.</li>
+            <li><b>2 / 3</b> said unprompted: <i>&ldquo;Usually I'd expect to click the navigation item.&rdquo;</i></li>
+            <li><b>2 / 3</b> were thrown by Disney looking like a &ldquo;selected&rdquo; state.</li>
+            <li><b>2 / 3</b> noticed the rollover delay and clicked through it, missing the menu.</li>
+            <li><b>3 / 3</b> commented on the number of buttons in the header.</li>
+          </ul>
+          <div class="res2-callout">
+            The pattern is unanimous: <b>hover-to-reveal does not match expectation</b> for this audience. A click-revealed mega-nav (or both) is the safer default.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 05 · User research interview (video embed slot)               -->
+  <!-- ============================================================ -->
+  <section data-screen-label="05 Interview" class="slide slide--video">
+    <div class="slide__inner">
+      <p class="eyebrow">User research · interview clip</p>
+      <h2 class="h-md">Watch how U2 (NQT) attacked the nav for the first time.</h2>
+      <div class="video-frame">
+        <video
+          class="video-frame__player"
+          src="../assets/interview-u2.mp4"
+          controls
+          style="display:block; width:100%; max-width:1200px; margin:0 auto; border-radius:24px; box-shadow:0 24px 60px rgba(7,31,50,.30);"
+        ></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 06 · Insights / hypotheses                                    -->
+  <!-- ============================================================ -->
+  <section data-screen-label="06 Insights" class="slide slide--insights">
+    <div class="slide__inner">
+      <p class="eyebrow">Insights</p>
+      <h2 class="h-lg">A user's first question is almost never &ldquo;what subject?&rdquo;</h2>
+      <div class="insight-grid">
+        <div class="insight">
+          <div class="insight__num">01</div>
+          <h3>Age first, subject second.</h3>
+          <p>Most session starts begin with <b>"I'm teaching Year 1 phonics today"</b> — a year-group context the user already holds. Subject and resource type narrow from there.</p>
+        </div>
+        <div class="insight">
+          <div class="insight__num">02</div>
+          <h3>Search is the real front door.</h3>
+          <p>Power users type the exact resource title (Twinkl's SEO-strong page names exist <i>because</i> of search-led entry). Nav is a fallback when search fails or for new users browsing.</p>
+        </div>
+        <div class="insight">
+          <div class="insight__num">03</div>
+          <h3>The nav is also a merchandiser.</h3>
+          <p>"Twinkl Recommends" exists because Twinkl ships big products (Originals, Phonics, Rhino Readers) that don't fit a single subject column. The nav needs a place for <i>products</i>, not just topics.</p>
+        </div>
+        <div class="insight">
+          <div class="insight__num">04</div>
+          <h3>Region locks taxonomy.</h3>
+          <p>England's KS1/KS2 ≠ Scotland's Early Level / First / Second. A nav that surfaces age <i>stages</i> by name only works after the locale is set.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 07 · Design principles                                        -->
+  <!-- ============================================================ -->
+  <section data-screen-label="07 Solutions" class="slide slide--principles">
+    <div class="slide__inner">
+      <p class="eyebrow">Three solutions we shipped</p>
+      <h2 class="h-md" style="margin-bottom: 28px;">From muddled to deliberate.</h2>
+
+      <div class="princ2">
+
+        <!-- Solution 1 -->
+        <div class="princ2__row princ2__row--blue">
+          <div class="princ2__numeral">1</div>
+          <div class="princ2__body">
+            <h3>Two rows, one job each.</h3>
+            <p>We split the top chrome into two stacked rows: <b>brand &middot; search &middot; account</b> on top, and <b>browse + audience</b> below. Each row owns a single job, so search isn't fighting three CTAs for the click.</p>
+          </div>
+          <div class="princ2__demo">
+            <div class="demo-stack">
+              <div class="demo-label demo-label--bad">Before</div>
+              <div class="demo-bar demo-bar--mashed">
+                <span class="db db--logo"></span>
+                <span class="db db--cta" style="background:#601A91"></span>
+                <span class="db db--text"></span>
+                <span class="db db--text"></span>
+                <span class="db db--cta" style="background:#D91B79"></span>
+                <span class="db db--chip"></span>
+                <span class="db db--chip"></span>
+                <span class="db db--chip"></span>
+                <span class="db db--chip"></span>
+              </div>
+            </div>
+            <div class="demo-stack">
+              <div class="demo-label demo-label--good">After</div>
+              <div class="demo-bar">
+                <span class="db db--logo"></span>
+                <span class="db db--search"></span>
+                <span class="db db--cta" style="background:#D91B79"></span>
+              </div>
+              <div class="demo-bar demo-bar--thin">
+                <span class="db db--chip" style="background:#E6F4FE"></span>
+                <span class="db db--chip"></span>
+                <span class="db db--chip"></span>
+                <span class="db db--chip"></span>
+                <span class="db db--chip"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution 2 -->
+        <div class="princ2__row princ2__row--pink">
+          <div class="princ2__numeral">2</div>
+          <div class="princ2__body">
+            <h3>Two ways to browse &mdash; by age, or by subject.</h3>
+            <p>Instead of mixing age stages, product silos, and brand chips on the same row, we promoted <b>two clear browse modes</b>. <b>Leaders</b>, <b>Parents</b>, and the <b>Twinkl Store</b> each get a dedicated spot.</p>
+          </div>
+          <div class="princ2__demo">
+            <div class="demo-tree">
+              <div class="demo-tree__root">Browse</div>
+              <div class="demo-tree__lines">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="demo-tree__leaves">
+                <span class="dtl" style="background:#FCE6F1;color:#971156">By age</span>
+                <span class="dtl" style="background:#E6F4FE;color:#07457E">By subject</span>
+                <span class="dtl" style="background:#F0E7F6;color:#4A1471">Leaders</span>
+                <span class="dtl" style="background:#FFF4D7;color:#7A5400">Parents</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution 3 -->
+        <div class="princ2__row princ2__row--purple">
+          <div class="princ2__numeral">3</div>
+          <div class="princ2__body">
+            <h3>Replace the 13-row recommends list with ranked cards.</h3>
+            <p>The old &ldquo;Twinkl Recommends&rdquo; column buried 13 different links in plain text. We promote <b>editorially-ranked product cards with thumbnails</b> inside the mega-nav, and route the long list to a &ldquo;See&nbsp;all&rdquo; deep index.</p>
+          </div>
+          <div class="princ2__demo">
+            <div class="demo-rec">
+              <div class="demo-rec__col demo-rec__col--bad">
+                <div class="demo-rec__lbl">13 rows of text</div>
+                <ul>
+                  <li></li><li></li><li></li><li></li><li></li>
+                  <li></li><li></li><li></li><li></li><li></li>
+                  <li></li><li></li><li></li>
+                </ul>
+              </div>
+              <div class="demo-rec__arrow">&rarr;</div>
+              <div class="demo-rec__col demo-rec__col--good">
+                <div class="demo-rec__lbl">2 ranked cards</div>
+                <div class="demo-rec__card">
+                  <div class="demo-rec__thumb" style="background:linear-gradient(135deg,#FCE6F1,#D91B79)"></div>
+                  <span></span><small></small>
+                </div>
+                <div class="demo-rec__card">
+                  <div class="demo-rec__thumb" style="background:linear-gradient(135deg,#E6F4FE,#2399F9)"></div>
+                  <span></span><small></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 08 · User flow                                                -->
+  <!-- ============================================================ -->
+  <section data-screen-label="08 User flow" class="slide slide--flow">
+    <div class="slide__inner">
+      <p class="eyebrow">User flow · every page in the redesign</p>
+      <h2 class="h-lg" style="margin-bottom: 24px;">Six pages, three entry points, one canonical&nbsp;path.</h2>
+
+      <div class="uflow">
+
+        <!-- Entry-point lane -->
+        <div class="uflow__band uflow__band--entry">
+          <span class="uflow__band-lbl">Entries</span>
+          <div class="uflow__entry">
+            <span class="uflow__entry-ico">⤓</span>
+            <span><b>Direct</b><br/>twinkl.co.uk</span>
+          </div>
+          <div class="uflow__entry">
+            <span class="uflow__entry-ico">⌕</span>
+            <span><b>Search</b><br/>typed query</span>
+          </div>
+          <div class="uflow__entry">
+            <span class="uflow__entry-ico">⌲</span>
+            <span><b>Deep link</b><br/>email · social · SEO</span>
+          </div>
+        </div>
+
+        <!-- Page graph -->
+        <div class="uflow__graph">
+
+          <!-- Page 1: Home -->
+          <div class="uflow__page uflow__page--1">
+            <div class="uflow__page-num">1</div>
+            <div class="uflow__page-thumb">
+              <div class="uft__bar"></div>
+              <div class="uft__nav"></div>
+              <div class="uft__hero"></div>
+              <div class="uft__cards"><span></span><span></span><span></span></div>
+            </div>
+            <div class="uflow__page-name">Homepage</div>
+            <div class="uflow__page-meta">Brand · hero · recommended packs</div>
+          </div>
+
+          <!-- Page 2: Top nav resting -->
+          <div class="uflow__page uflow__page--2">
+            <div class="uflow__page-num">2</div>
+            <div class="uflow__page-thumb">
+              <div class="uft__bar"></div>
+              <div class="uft__nav uft__nav--hl"></div>
+              <div class="uft__plain"></div>
+            </div>
+            <div class="uflow__page-name">Top nav, resting</div>
+            <div class="uflow__page-meta">Persistent on every route</div>
+          </div>
+
+          <!-- Page 3: Mega nav open -->
+          <div class="uflow__page uflow__page--3 uflow__page--brief">
+            <div class="uflow__page-num">3</div>
+            <div class="uflow__page-thumb">
+              <div class="uft__bar"></div>
+              <div class="uft__nav uft__nav--active"></div>
+              <div class="uft__mega"></div>
+            </div>
+            <div class="uflow__page-name">Mega-nav open</div>
+            <div class="uflow__page-meta">Subject · Scheme · Type · Featured</div>
+            <span class="uflow__brief-tag">Brief</span>
+          </div>
+
+          <!-- Page 4: Category page -->
+          <div class="uflow__page uflow__page--4 uflow__page--brief">
+            <div class="uflow__page-num">4</div>
+            <div class="uflow__page-thumb">
+              <div class="uft__bar"></div>
+              <div class="uft__nav"></div>
+              <div class="uft__cat"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="uflow__page-name">Category page</div>
+            <div class="uflow__page-meta">Hub of subjects · schemes · featured</div>
+            <span class="uflow__brief-tag">Brief</span>
+          </div>
+
+          <!-- Page 5: Resources browsing -->
+          <div class="uflow__page uflow__page--5 uflow__page--brief">
+            <div class="uflow__page-num">5</div>
+            <div class="uflow__page-thumb">
+              <div class="uft__bar"></div>
+              <div class="uft__nav"></div>
+              <div class="uft__rail"></div>
+              <div class="uft__grid">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="uflow__page-name">Resources browsing</div>
+            <div class="uflow__page-meta">Faceted filters + grid</div>
+            <span class="uflow__brief-tag">Brief</span>
+          </div>
+
+          <!-- Page 6: Resource detail -->
+          <div class="uflow__page uflow__page--6">
+            <div class="uflow__page-num">6</div>
+            <div class="uflow__page-thumb">
+              <div class="uft__bar"></div>
+              <div class="uft__nav"></div>
+              <div class="uft__detail">
+                <div></div><div></div>
+              </div>
+            </div>
+            <div class="uflow__page-name">Resource detail</div>
+            <div class="uflow__page-meta">Preview · download · siblings</div>
+          </div>
+
+          <!-- SVG overlay for arrows -->
+          <svg class="uflow__edges" viewBox="0 0 1680 540" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#071F32"/>
+              </marker>
+              <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0D63B0"/>
+              </marker>
+            </defs>
+
+            <!-- Canonical happy path (solid, dark) -->
+            <path d="M 240 270 H 290" stroke="#071F32" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 530 270 H 580" stroke="#071F32" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 820 270 H 870" stroke="#071F32" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 1110 270 H 1160" stroke="#071F32" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 1400 270 H 1450" stroke="#071F32" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+            <!-- Branch: nav resting → category page (clicked, not hovered) -->
+            <path d="M 530 320 Q 580 460 870 460 L 870 380" stroke="#0D63B0" stroke-width="2.5"
+                  stroke-dasharray="6 5" fill="none" marker-end="url(#arrow-blue)"/>
+            <text x="700" y="455" fill="#0D63B0" font-family="Roboto, sans-serif" font-size="15" font-weight="700">click chip · skip mega</text>
+
+            <!-- Branch: mega open → resources directly (skip category page) -->
+            <path d="M 820 220 Q 1000 110 1280 110 L 1280 220" stroke="#0D63B0" stroke-width="2.5"
+                  stroke-dasharray="6 5" fill="none" marker-end="url(#arrow-blue)"/>
+            <text x="970" y="100" fill="#0D63B0" font-family="Roboto, sans-serif" font-size="15" font-weight="700">click sub-item · skip category</text>
+
+            <!-- Back-step: resource detail → siblings on browsing -->
+            <path d="M 1500 320 Q 1500 460 1300 460 L 1300 380" stroke="#0D63B0" stroke-width="2.5"
+                  stroke-dasharray="6 5" fill="none" marker-end="url(#arrow-blue)"/>
+            <text x="1320" y="455" fill="#0D63B0" font-family="Roboto, sans-serif" font-size="15" font-weight="700">browse siblings</text>
+          </svg>
+
+        </div>
+
+        <!-- Legend -->
+        <div class="uflow__legend">
+          <span><span class="uflow__legend-line uflow__legend-line--solid"></span> Canonical path</span>
+          <span><span class="uflow__legend-line uflow__legend-line--dashed"></span> Power-user shortcut</span>
+          <span><span class="uflow__brief-tag" style="position:relative; display:inline-flex; padding:3px 10px;">Brief</span> Pages called out in the task</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 09 · Wireframe · Desktop, top nav resting                     -->
+  <!-- ============================================================ -->
+  <section data-screen-label="09 Desktop resting" class="slide slide--wf">
+    <div class="slide__inner">
+      <p class="eyebrow">Solution · 01 · Desktop · resting state · low fidelity</p>
+      <h2 class="h-md">A two-row chrome with one job per row.</h2>
+
+      <div class="wf-frame wf-frame--strip">
+        <div class="wf-frame__lbl">Desktop · top nav · resting · low fidelity</div>
+        <img src="../assets/wireframe-desktop-nav.png" alt="Wireframe — desktop top navigation, resting state" />
+      </div>
+
+      <div class="callouts">
+        <div class="callout">
+          <b>Row 1 — utility.</b> Logo, dominant search, two small chips, sign-in, and one pink CTA. Nothing competes for the same click.
+        </div>
+        <div class="callout">
+          <b>Row 2 — browse.</b> "Browse by age", "Browse by subject", Leaders, Parents, Twinkl Store. Clear taxonomies, one per item.
+        </div>
+        <div class="callout">
+          <b>Disney earns its place</b> as a featured partner chip — visually distinct from a hover state, never confused for "selected".
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 10 · Wireframe · Desktop, "Browse by age" open                -->
+  <!-- ============================================================ -->
+  <section data-screen-label="10 Desktop mega" class="slide slide--wf">
+    <div class="slide__inner">
+      <p class="eyebrow">Solution · 02 · Desktop · "Browse by age" open · low fidelity</p>
+      <h2 class="h-md">Click reveals an age rail and three orthogonal columns.</h2>
+
+      <div class="wf-frame">
+        <img src="../assets/wireframe-desktop-mega.png" alt="Wireframe — desktop, Browse by age open" />
+      </div>
+
+      <div class="callouts">
+        <div class="callout">
+          <b>Click, not hover.</b> The chip toggles the panel — matching what every user in research expected.
+        </div>
+        <div class="callout">
+          <b>Stages on the left, facets across.</b> Early Years, KS1‒KS4–5, SEND &amp; Inclusion, Home Education all stay one tap away.
+        </div>
+        <div class="callout">
+          <b>"Twinkl Recommends"</b> reclaims a column instead of being a 13-row dump. <b>"Browse all"</b> escape hatch sits at the bottom.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 11 · Wireframe · Mobile (resting + menu open)                 -->
+  <!-- ============================================================ -->
+  <section data-screen-label="11 Mobile" class="slide slide--wf">
+    <div class="slide__inner">
+      <p class="eyebrow">Solution · 03 · Mobile · low fidelity</p>
+      <h2 class="h-md">Same logic, vertical. Search persists, browse collapses into a labelled list.</h2>
+
+      <div class="wf-mobile-pair">
+        <div class="wf-phone">
+          <div class="wf-phone__lbl">Resting</div>
+          <div class="wf-phone__frame">
+            <img src="../assets/wireframe-desktop-landing.png" alt="Wireframe — mobile resting state" />
+          </div>
+        </div>
+        <div class="wf-phone">
+          <div class="wf-phone__lbl">Menu open</div>
+          <div class="wf-phone__frame">
+            <img src="../assets/wireframe-mobile-menu.png" alt="Wireframe — mobile menu open" />
+          </div>
+        </div>
+        <ul class="wf-notes wf-notes--mobile">
+          <li>
+            <span class="wf-num" style="background:#2399F9">1</span>
+            <div><b>Search dominates the top bar.</b> Logo, search, hamburger — nothing else fights for space at this width.</div>
+          </li>
+          <li>
+            <span class="wf-num" style="background:#D91B79">2</span>
+            <div><b>Every menu item carries a subtitle.</b> "Browse by age · Early Years, KS1, KS2, Secondary" — the taxonomy reads in one glance.</div>
+          </li>
+          <li>
+            <span class="wf-num" style="background:#601A91">3</span>
+            <div><b>Auth lives at the bottom of the panel.</b> Two clear buttons land in the thumb zone.</div>
+          </li>
+          <li>
+            <span class="wf-num" style="background:#FFC93C;color:#071F32">4</span>
+            <div><b>Featured content stays below the panel.</b> The menu opens as a sheet over content, not as a dead end.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 12 · Measuring success                                        -->
+  <!-- ============================================================ -->
+  <section data-screen-label="12 Metrics" class="slide slide--metrics">
+    <div class="slide__inner">
+      <p class="eyebrow">How we'd know it worked</p>
+      <h2 class="h-lg">Four signals, in priority order.</h2>
+      <div class="metric-grid">
+        <div class="metric"><div class="metric__num">1</div><h3>Time to first resource view</h3><p>From a cold landing to opening any resource detail page. Target: <b>−15%</b> at the 75th percentile within 6 weeks.</p></div>
+        <div class="metric"><div class="metric__num">2</div><h3>Nav-to-search ratio</h3><p>Share of sessions that <i>only</i> use search vs. those that touch the nav. Healthy nav = ratio shifts toward nav-assisted browsing.</p></div>
+        <div class="metric"><div class="metric__num">3</div><h3>Mega-nav abandonment</h3><p>Hovers that close without a click. Today this isn't measured; we'd add it as the primary nav-health metric.</p></div>
+        <div class="metric"><div class="metric__num">4</div><h3>Featured-card CTR</h3><p>Tracks whether the "earned" slot is doing its job — and feeds editorial back.</p></div>
+      </div>
+      <p class="metric-footer">
+        Validation: a 4-week A/B with a 10% holdout, gated by an unmoderated tree test before launch to catch
+        new-taxonomy confusion early.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 13 · Narrated video walkthrough (deliverable embed)           -->
+  <!-- ============================================================ -->
+  <section data-screen-label="13 Narrated video" class="slide slide--video">
+    <div class="slide__inner">
+      <p class="eyebrow">Deliverable · narrated walkthrough</p>
+      <h2 class="h-md">Five-minute video covering the problems, rationale, and how we'd measure success.</h2>
+      <div class="video-frame">
+        <div class="video-frame__player video-frame__player--wide">
+          <button class="video-frame__play" aria-label="Play narrated walkthrough">
+            <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="video-frame__caption">
+            <b>Twinkl nav redesign · narrated walkthrough</b>
+            <span>00:00 / 05:12 · 1080p · captions on</span>
+          </div>
+          <div class="video-frame__scrub"><span style="width: 6%"></span></div>
+        </div>
+        <p class="video-frame__note">
+          ▶ Drop the recorded narration into <code>slides/assets/narrated-walkthrough.mp4</code> to replace this placeholder.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 14 · Thanks                                                   -->
+  <!-- ============================================================ -->
+  <section data-screen-label="14 Thanks" class="slide slide--title slide--thanks">
+    <div class="title__bg">
+      <span class="cloud cloud--1"></span>
+      <span class="cloud cloud--2"></span>
+      <span class="cloud cloud--3"></span>
+    </div>
+    <div class="title__content">
+      <h1 class="display title__h1" style="font-size: 132px;">Thank you.</h1>
+      <p class="title__sub">Happy to dig into any slide.</p>
+      <div class="title__meta">
+        <span>Twinkl Web · Senior Product Designer interview</span>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+<script>
+  document.querySelector('deck-stage').addEventListener('slidechange', function(e) {
+    if (e.detail.previousIndex === 4) {
+      var vid = e.detail.previousSlide && e.detail.previousSlide.querySelector('video');
+      if (vid) vid.pause();
+    }
+  });
+</script>
+</body>
+</html>

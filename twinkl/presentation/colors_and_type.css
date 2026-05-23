@@ -1,0 +1,230 @@
+/* =====================================================================
+   Twinkl Design System — colors_and_type.css
+   ---------------------------------------------------------------------
+   Brand-faithful CSS variables for the Twinkl visual language.
+   Twinkl is a teacher-resource platform with a warm, kid-friendly tone:
+   bright sky blue, hot pink + magenta accents, royal purple, and a
+   palette of pastel category colors (pink, blue, teal, yellow, purple).
+   Type is a friendly humanist sans for UI, plus a rounded display face
+   that echoes the Twinkl wordmark for hero / playful headings.
+
+   Substitutions (see README "Visual Foundations"):
+   - Display:  Twinkl's wordmark is custom; we substitute Fredoka.
+   - Sans:     Twinkl ships FS Albert Pro (paid); we substitute Nunito.
+   ===================================================================== */
+
+/* ---------- Fonts (Google Fonts) ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* ============================================================
+     COLOR — Brand primaries
+     ============================================================ */
+  --tw-blue:           #2399F9;  /* The Twinkl blue. Logo cloud bg.    */
+  --tw-blue-600:       #1486E0;
+  --tw-blue-700:       #0D63B0;  /* Underlined links, active labels.   */
+  --tw-blue-800:       #07457E;  /* Hover/press on blue link.          */
+  --tw-blue-50:        #E6F4FE;  /* Tint, soft surface.                */
+  --tw-blue-100:       #C8E6FD;
+
+  --tw-pink:           #D91B79;  /* "Twinkl pink" — the star + CTA.    */
+  --tw-pink-600:       #BA1668;
+  --tw-pink-700:       #971156;  /* CTA press.                         */
+  --tw-pink-50:        #FCE6F1;
+
+  --tw-purple:         #601A91;  /* Trial pill / subscription accent.  */
+  --tw-purple-700:     #4A1471;
+  --tw-purple-50:      #F0E7F6;
+
+  /* Secondary / category palette — used for the colorful resource
+     section cards (English Product Lines, Decoding Dream Team, etc).
+     Picked off the live category page reference image. */
+  --tw-teal:           #34BFB1;
+  --tw-teal-50:        #E0F5F2;
+  --tw-mint:           #6FD8A3;
+  --tw-yellow:         #FFC93C;
+  --tw-yellow-soft:    #FFE7A1;
+  --tw-orange:         #F39237;
+  --tw-red:            #E64A4A;
+  --tw-lavender:       #9B8CE0;
+
+  /* Neutrals */
+  --tw-ink:            #071F32;  /* Body text — deep navy ink.          */
+  --tw-ink-2:          #2A3B4B;
+  --tw-ink-3:          #6B7785;  /* Muted / meta.                       */
+  --tw-line:           #E4E7EB;  /* Hairline borders.                   */
+  --tw-line-2:         #CBD2D9;
+  --tw-surface:        #FFFFFF;
+  --tw-surface-2:      #F6F7F8;  /* Page background under the nav.      */
+  --tw-surface-3:      #ECEFF1;  /* Footer band.                        */
+
+  /* Semantic foreground / background aliases */
+  --fg-1:              var(--tw-ink);
+  --fg-2:              var(--tw-ink-2);
+  --fg-muted:          var(--tw-ink-3);
+  --fg-on-blue:        #FFFFFF;
+  --fg-on-pink:        #FFFFFF;
+  --fg-link:           var(--tw-blue-700);
+  --fg-link-hover:     var(--tw-blue-800);
+
+  --bg-page:           var(--tw-surface);
+  --bg-page-muted:     var(--tw-surface-2);
+  --bg-elev:           var(--tw-surface);
+
+  /* Stars / ratings */
+  --tw-star:           #FFB400;
+
+  /* ============================================================
+     SHADOW / ELEVATION
+     Twinkl uses very soft, low-spread shadows on cards + a single
+     deeper "popover" shadow under the mega-nav and floating help
+     bubble.
+     ============================================================ */
+  --tw-shadow-sm:      0 1px 2px rgba(15, 23, 42, .06);
+  --tw-shadow-card:    0 2px 8px rgba(15, 23, 42, .06),
+                       0 1px 2px rgba(15, 23, 42, .04);
+  --tw-shadow-pop:     0 10px 28px rgba(15, 23, 42, .12),
+                       0 2px 6px rgba(15, 23, 42, .06);
+  --tw-shadow-bubble:  0 6px 16px rgba(186, 22, 104, .35);
+
+  /* ============================================================
+     RADIUS — Twinkl uses generously rounded corners; pills for CTAs.
+     ============================================================ */
+  --tw-radius-xs:      4px;
+  --tw-radius-sm:      6px;     /* search input, nav chips            */
+  --tw-radius-md:      10px;    /* cards                              */
+  --tw-radius-lg:      14px;    /* feature cards / category headers   */
+  --tw-radius-pill:    9999px;  /* CTAs, badges, search field         */
+
+  /* ============================================================
+     SPACING — 4px base grid
+     ============================================================ */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  32px;
+  --space-8:  40px;
+  --space-9:  48px;
+  --space-10: 64px;
+  --space-11: 80px;
+
+  /* Layout */
+  --tw-container:      1280px;
+  --tw-nav-height:     56px;
+  --tw-topbar-height:  64px;
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --font-display:      'Roboto', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --font-sans:         'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:         ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Type scale (px) */
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-20: 20px;
+  --fs-24: 24px;
+  --fs-28: 28px;
+  --fs-32: 32px;
+  --fs-40: 40px;
+  --fs-48: 48px;
+  --fs-56: 56px;
+  --fs-64: 64px;
+
+  /* Weights */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-black:    800;
+
+  /* Line heights */
+  --lh-tight:    1.1;
+  --lh-snug:     1.25;
+  --lh-normal:   1.4;
+  --lh-relaxed:  1.55;
+
+  /* Letter spacing */
+  --ls-tight:    -0.01em;
+  --ls-normal:   0;
+  --ls-wide:     0.04em;
+
+  /* Motion (Twinkl: snappy, no bounce, ~150–200ms) */
+  --ease-out:    cubic-bezier(.2, .8, .2, 1);
+  --dur-fast:    120ms;
+  --dur-base:    180ms;
+  --dur-slow:    280ms;
+}
+
+/* ---------------- Base element styles ---------------- */
+
+html, body {
+  font-family: var(--font-sans);
+  font-size:   var(--fs-16);
+  line-height: var(--lh-normal);
+  color:       var(--fg-1);
+  background:  var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings — bold humanist sans by default; display font when used as
+   a hero / branded headline (apply .display class explicitly). */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  color:       var(--fg-1);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  margin: 0;
+}
+
+h1 { font-size: var(--fs-48); line-height: var(--lh-tight); font-weight: var(--fw-black); }
+h2 { font-size: var(--fs-32); }
+h3 { font-size: var(--fs-24); }
+h4 { font-size: var(--fs-20); }
+h5 { font-size: var(--fs-18); }
+h6 { font-size: var(--fs-16); text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--fg-muted); }
+
+p  { margin: 0 0 var(--space-4); font-size: var(--fs-16); line-height: var(--lh-relaxed); }
+
+small, .tw-meta {
+  font-size: var(--fs-13);
+  color: var(--fg-muted);
+}
+
+a {
+  color: var(--fg-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+a:hover { color: var(--fg-link-hover); }
+
+/* Display / hero headline — use the rounded face that echoes the
+   Twinkl wordmark. */
+.tw-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.005em;
+  line-height: var(--lh-tight);
+}
+
+/* Selection */
+::selection { background: var(--tw-pink-50); color: var(--tw-pink-700); }
+
+/* Focus ring (accessibility) */
+:focus-visible {
+  outline: 3px solid var(--tw-blue);
+  outline-offset: 2px;
+  border-radius: var(--tw-radius-sm);
+}
