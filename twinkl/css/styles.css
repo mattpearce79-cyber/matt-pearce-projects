@@ -1354,6 +1354,10 @@ html[data-theme="nhs"] textarea:focus {
   opacity: 0.8;
 }
 
+.figma-link-btn--pink {
+  background: #D91B79;
+}
+
 /* High-fidelity panels */
 .hifi-panel {
   background: #fff;
