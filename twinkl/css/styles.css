@@ -838,6 +838,26 @@ body {
   gap: var(--content-spacing-xsmall);
 }
 
+.info-card .body-bold {
+  font-size: 1.25rem;
+}
+
+.info-card:has(> .badge) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  row-gap: var(--content-spacing-xsmall);
+}
+
+.info-card:has(> .badge) > .badge,
+.info-card:has(> .badge) > .body-bold {
+  align-self: center;
+}
+
+.info-card:has(> .badge) > :not(.badge):not(.body-bold) {
+  grid-column: 1 / -1;
+}
+
 /* ============================================================
    BADGE (numbered circle / avatar)
    ============================================================ */
@@ -896,6 +916,7 @@ body {
 
 .intro-text li {
   margin-bottom: 0;
+  font-weight: var(--weight-400);
 }
 
 /* ============================================================

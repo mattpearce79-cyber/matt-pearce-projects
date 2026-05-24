@@ -35,18 +35,19 @@
       <div class="page-title__inner">
         <p class="body-x-small" style="color: var(--color-text-primary)">DD Month YYYY</p>
         <h1 style="color: var(--color-text-primary)">Overview</h1>
-        <p style="font-family: var(--family-headings); font-size: var(--size-large); font-weight: var(--weight-400); color: var(--color-text-secondary); margin-top: 4px; line-height: 1.2;">[Project subtitle]</p>
+        <p style="font-family: var(--family-headings); font-size: var(--size-large); font-weight: var(--weight-400); color: var(--color-text-secondary); margin-top: 4px; line-height: 1.2;">Redesigning the top navigation for 1.5 million resources and 6 million users.</p>
       </div>
     </div>
 
     <div class="page-intro">
       <div class="page-intro__inner intro-text">
-        <p>[Intro paragraph. Describe what this project is, who it affects, and what it aims to achieve in 2–3 sentences.]</p>
+        <p>Twinkl's top navigation serves over 6 million educators, parents, and school leaders browsing a catalogue of 1.5 million resources. The existing nav collapses too many audiences, taxonomies, and commercial goals into a single flat row, producing competing calls to action and a hover-triggered mega menu that research shows users consistently bypass. This project redesigns it around clear intent-based categories and a click-first interaction pattern.</p>
         <p>&nbsp;</p>
         <ul>
-          <li>[Key objective one]</li>
-          <li>[Key objective two]</li>
-          <li>[Key objective three]</li>
+          <li>Collapse 12+ mixed nav items into five intent-based categories covering age, subject, audience, and commercial destinations</li>
+          <li>Replace the hover-triggered mega menu with a click-first interaction that matches observed user behaviour</li>
+          <li>Improve time to first resource with a two-panel mega menu that lets users navigate by curriculum stage without leaving the nav</li>
+          <li>Validate the redesign through moderated usability testing, benchmarked against task-completion times on the existing site</li>
         </ul>
       </div>
     </div>
@@ -59,37 +60,7 @@
           <h3 style="color: var(--color-text-primary)">Existing design</h3>
         </div>
         <p class="body-small" style="color: var(--color-text-secondary)">[Brief description of what the existing design shows and why it is the starting point for this project.]</p>
-        <div class="screenshot-frame">
-          <div class="screenshot-browser-bar">
-            <span class="screenshot-dot"></span>
-            <span class="screenshot-dot"></span>
-            <span class="screenshot-dot"></span>
-            <span class="screenshot-url">example.com/path</span>
-          </div>
-          <div class="screenshot-body">
-            <div class="signup-mockup">
-              <h2 class="signup-mockup__title">[Form heading]</h2>
-              <div class="signup-mockup__field">
-                <span class="signup-mockup__label">[Field label]</span>
-                <span class="signup-mockup__placeholder">[Placeholder text]</span>
-              </div>
-              <div class="signup-mockup__field">
-                <span class="signup-mockup__label">[Field label]</span>
-                <span class="signup-mockup__placeholder">[Placeholder text]</span>
-                <span class="signup-mockup__eye">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#071f32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
-                    <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
-                    <path d="M9.9 14.1a3 3 0 0 1-4-4"/>
-                    <line x1="2" y1="2" x2="22" y2="22"/>
-                  </svg>
-                </span>
-              </div>
-              <button class="signup-mockup__btn">[Primary CTA button text]</button>
-              <p class="signup-mockup__legal">[Legal copy placeholder. By continuing, you agree to the Terms and Conditions and Privacy Notice.]</p>
-            </div>
-          </div>
-        </div>
+        <img src="images/exisiting-design.png" alt="Existing Twinkl navigation design" style="width: 100%; display: block; border-radius: 8px; margin-top: 16px;" />
       </div>
 
       <!-- Scenario (brand card) -->
@@ -120,42 +91,64 @@
         <div class="card-header">
           <h3 style="color: var(--color-text-primary)">Pain points</h3>
         </div>
-        <div class="grid-2col">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
 
           <div class="info-card">
             <div class="badge">01</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Competing calls to action</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The logo, a purple trial button, and a pink join button all sit within a 200px stretch of the header, each demanding the same click. Users are forced to evaluate three primary actions before they have even started browsing.</p>
           </div>
 
           <div class="info-card">
             <div class="badge">02</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Utility links are visually dismissed</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">School Enquiries, the language selector, and Sign In are sandwiched between loud CTAs. They carry real user value but receive no visual hierarchy, making them easy to miss entirely.</p>
           </div>
 
           <div class="info-card">
             <div class="badge">03</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">No label on the language selector</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The country flag is the only affordance for region switching. It is accessible only to users who recognise the flag, excluding international visitors and anyone unfamiliar with UK regional flags.</p>
           </div>
 
           <div class="info-card">
             <div class="badge">04</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Disney chip reads as a selected state</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The Disney partnership chip is styled in the same colour that standard nav items adopt on hover, causing users to interpret it as the currently active section rather than a featured partner link.</p>
           </div>
 
           <div class="info-card">
             <div class="badge">05</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Dual-function nav items with no signposting</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Hovering over a nav item opens the mega menu; clicking navigates to a category landing page. The same target produces two different outcomes with no visual indication of which action does what, creating consistent confusion in user testing.</p>
           </div>
 
           <div class="info-card">
             <div class="badge">06</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Pain point title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this pain point. Explain what causes it and how it affects users in 1–2 sentences.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Hover delay reads as a broken interaction</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The mega menu reveal delay of approximately 200ms leads users to believe their hover did not register. All three research participants clicked through the delay, navigating away from the nav before the menu had a chance to open.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">07</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Overlapping age ranges cause ambiguity</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The age categories 3–5 and 5–7 share the boundary year, leaving users uncertain which group a 5-year-old belongs to. Without clarification, parents and teachers may browse the wrong category or check both, adding unnecessary friction to a task that should be immediate.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Assumptions -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Assumptions</h3>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+
+          <div class="info-card">
+            <div class="badge">01</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Disney button is a commercial priority</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The Disney partnership chip is assumed to represent a high-priority commercial relationship that must be preserved and given prominent placement in any redesign. All design decisions treat this as a fixed constraint rather than an element open to removal or de-emphasis. If this assumption is incorrect, the Disney chip could be absorbed into the standard nav taxonomy like any other content category.</p>
           </div>
 
         </div>

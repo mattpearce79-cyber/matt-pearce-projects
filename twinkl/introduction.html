@@ -47,18 +47,36 @@
 
     <div class="sections">
 
+      <!-- Narrated walkthrough video -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Watch: process, rationale &amp; results</h3>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary)">A narrated walkthrough covering how I approached the brief, the key design decisions made along the way, and how I'd measure success. Approximately 5 minutes.</p>
+
+        <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; border: 1px solid #e8e8e8; background: #000;">
+          <video
+            controls
+            style="display: block; width: 100%; max-height: 560px; background: #000;"
+            src="../twinkl-presentation/assets/narrated-walkthrough.mp4"
+          >
+            Your browser does not support the video element.
+          </video>
+        </div>
+      </div>
+
       <!-- Key stats -->
       <div class="grid-3col">
         <div class="info-card">
-          <p class="body-bold" style="color: var(--color-text-primary); font-size: 2rem; line-height: 1;">1.5M+</p>
+          <p class="body-bold" style="color: #D91B79; font-size: 3rem; line-height: 1;">1.5M+</p>
           <p class="body-small" style="color: var(--color-text-secondary); margin-top: 6px;">Educational resources available on Twinkl, spanning a wide range of types, formats and subjects.</p>
         </div>
         <div class="info-card">
-          <p class="body-bold" style="color: var(--color-text-primary); font-size: 2rem; line-height: 1;">4+</p>
+          <p class="body-bold" style="color: #D91B79; font-size: 3rem; line-height: 1;">4+</p>
           <p class="body-small" style="color: var(--color-text-secondary); margin-top: 6px;">Key dimensions users navigate by: resource type, subject, age group, and learning year.</p>
         </div>
         <div class="info-card">
-          <p class="body-bold" style="color: var(--color-text-primary); font-size: 2rem; line-height: 1;">1</p>
+          <p class="body-bold" style="color: #D91B79; font-size: 3rem; line-height: 1;">1</p>
           <p class="body-small" style="color: var(--color-text-secondary); margin-top: 6px;">Navigation bar expected to surface all of it: the central design challenge of this project.</p>
         </div>
       </div>
@@ -72,54 +90,174 @@
 
           <div class="info-card">
             <div class="badge">01</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">Vast resource diversity</p>
+            <p class="body-bold" style="color: var(--color-text-primary); ">Vast resource diversity</p>
             <p class="body-small" style="color: var(--color-text-secondary)">With over 1.5 million resources of very different types, no single category structure can neatly contain everything Twinkl offers.</p>
           </div>
 
           <div class="info-card">
             <div class="badge">02</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">Multi-dimensional browsing</p>
+            <p class="body-bold" style="color: var(--color-text-primary); ">Multi-dimensional browsing</p>
             <p class="body-small" style="color: var(--color-text-secondary)">Users navigate by subject, age group, learning year, resource type and more, across multiple overlapping dimensions that resist a flat hierarchy.</p>
           </div>
 
           <div class="info-card">
             <div class="badge">03</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">One nav to rule them all</p>
+            <p class="body-bold" style="color: var(--color-text-primary); ">One nav to rule them all</p>
             <p class="body-small" style="color: var(--color-text-secondary)">The top nav bar must serve the full breadth of Twinkl's audience without becoming overwhelming or unreliable as a wayfinding tool.</p>
           </div>
 
         </div>
       </div>
 
-      <!-- Existing design mockup -->
+      <!-- Existing design -->
       <div class="card">
         <div class="card-header">
           <h3 style="color: var(--color-text-primary)">The brief</h3>
         </div>
         <p class="body-small" style="color: var(--color-text-secondary)">The project brief as set out for this redesign challenge.</p>
-        <div class="screenshot-frame">
-          <div class="screenshot-browser-bar">
-            <span class="screenshot-dot"></span>
-            <span class="screenshot-dot"></span>
-            <span class="screenshot-dot"></span>
-            <span class="screenshot-url">twinkl.co.uk</span>
+        <img src="images/exisiting-design.png" alt="The Twinkl brief" style="width: 100%; display: block; border-radius: 8px; margin-top: 16px;" />
+      </div>
+
+      <!-- Time investment -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Time investment</h3>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary)">The original brief suggested approximately 2 hours. In practice, delivering a fully researched, tested, and documented redesign took closer to 6.5 hours — reflecting a more thorough approach across every phase of the process.</p>
+
+        <!-- Brief vs actual -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0 32px;">
+          <div class="info-card" style="text-align: center;">
+            <p class="body-x-small" style="color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Brief suggested</p>
+            <p style="font-family: var(--family-headings); font-size: 2.5rem; font-weight: 700; color: var(--color-text-secondary); line-height: 1; margin: 0;">~2 hrs</p>
           </div>
-          <div class="screenshot-body">
-            <div class="signup-mockup">
-              <h2 class="signup-mockup__title">The brief</h2>
-              <div class="signup-mockup__field">
-                <span class="signup-mockup__label">Context</span>
-                <span class="signup-mockup__placeholder">Twinkl offers over 1.5M educational resources across many types, age groups, learning years and subjects. The top navigation bar is the primary way users begin their journey.</span>
-              </div>
-              <div class="signup-mockup__field">
-                <span class="signup-mockup__label">Problem</span>
-                <span class="signup-mockup__placeholder">Given the broad nature of the catalogue, it's currently hard to create a single, simple navigation structure that reliably serves all users.</span>
-              </div>
-              <button class="signup-mockup__btn">Redesign the top nav bar</button>
-              <p class="signup-mockup__legal">Balancing Twinkl's broad resource diversity with a manageable, easy, and reliable user experience.</p>
-            </div>
+          <div class="info-card" style="text-align: center; border-color: var(--color-brand-primary);">
+            <p class="body-x-small" style="color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Actual time</p>
+            <p style="font-family: var(--family-headings); font-size: 2.5rem; font-weight: 700; color: var(--color-text-primary); line-height: 1; margin: 0;">~6.5 hrs</p>
           </div>
         </div>
+
+        <!-- Phase breakdown -->
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+
+          <!-- Phase 1: Understand -->
+          <div>
+            <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px;">
+              <p class="body-lead-bold" style="color: var(--color-text-primary); margin: 0;">Understand</p>
+              <p class="body" style="color: var(--color-text-secondary); margin: 0;">40 mins</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">Read the brief</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">10 mins</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 16.7%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">Explore existing site</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">30 mins</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 50%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 2: Research -->
+          <div>
+            <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px;">
+              <p class="body-lead-bold" style="color: var(--color-text-primary); margin: 0;">Research</p>
+              <p class="body" style="color: var(--color-text-secondary); margin: 0;">1 hr 45 mins</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">User research sessions</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">1 hr</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 100%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">Wireframe usability testing</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">45 mins</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 75%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 3: Design -->
+          <div>
+            <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px;">
+              <p class="body-lead-bold" style="color: var(--color-text-primary); margin: 0;">Design</p>
+              <p class="body" style="color: var(--color-text-secondary); margin: 0;">2 hrs</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">Basic design system</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">30 mins</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 50%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">Wireframes</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">30 mins</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 50%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">Hi-fidelity prototype</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">1 hr</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 100%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 4: Deliver -->
+          <div>
+            <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px;">
+              <p class="body-lead-bold" style="color: var(--color-text-primary); margin: 0;">Deliver</p>
+              <p class="body" style="color: var(--color-text-secondary); margin: 0;">2 hrs 10 mins</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">Presentation</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">10 mins</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 16.7%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">Video walkthrough</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">1 hr</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 100%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <p class="body" style="color: var(--color-text-secondary); margin: 0;">Case study documentation</p>
+                  <p class="body-small" style="color: var(--color-text-secondary); margin: 0;">1 hr</p>
+                </div>
+                <div style="height: 10px; background: var(--color-border-primary); border-radius: 99px; overflow: hidden;"><div style="height: 100%; width: 100%; background: var(--color-brand-primary); border-radius: 99px;"></div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Total -->
+        <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-border-primary); display: flex; justify-content: space-between; align-items: baseline;">
+          <p class="body-lead-bold" style="color: var(--color-text-primary); margin: 0;">Total</p>
+          <p style="font-family: var(--family-headings); font-size: 1.5rem; font-weight: 700; color: var(--color-text-primary); margin: 0;">6 hrs 35 mins</p>
+        </div>
+
       </div>
 
     </div><!-- /sections -->
