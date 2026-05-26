@@ -687,7 +687,7 @@ body {
   width: 220px;
   flex-shrink: 0;
   height: 100vh;
-  background: var(--color-surface-primary);
+  background: var(--color-surface-subtle);
   border-right: 1px solid var(--color-border-primary);
   display: flex;
   flex-direction: column;
@@ -748,7 +748,7 @@ body {
   flex-direction: column;
   flex: 1;
   min-height: 100vh;
-  background-color: var(--color-surface-subtle);
+  background-color: var(--color-surface-primary);
 }
 
 .page-title {
@@ -775,6 +775,27 @@ body {
 .page-intro__inner {
   width: 100%;
   max-width: var(--width-default);
+}
+
+.page-footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px var(--section-padding-default);
+  border-top: 1px solid var(--color-border-primary);
+  margin-top: 16px;
+}
+
+.page-footer-nav__link {
+  font-family: var(--family-paragraph);
+  font-size: 1.1rem;
+  font-weight: var(--weight-700);
+  color: #D91B79;
+  text-decoration: none;
+}
+
+.page-footer-nav__link:hover {
+  color: #601A91;
 }
 
 .sections {
@@ -842,16 +863,27 @@ body {
   font-size: 1.25rem;
 }
 
-.info-card:has(> .badge) {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 12px;
-  row-gap: var(--content-spacing-xsmall);
+.img-placeholder {
+  width: 100%;
+  min-height: 160px;
+  background: var(--color-surface-secondary, #f5f5f5);
+  border: 2px dashed var(--color-border-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: var(--size-body-small);
+  grid-column: 1 / -1;
 }
 
-.info-card:has(> .badge) > .badge,
-.info-card:has(> .badge) > .body-bold {
-  align-self: center;
+.info-card:has(> .badge) {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  column-gap: 10px;
+  row-gap: var(--content-spacing-xsmall);
+  align-items: start;
+  align-content: start;
 }
 
 .info-card:has(> .badge) > :not(.badge):not(.body-bold) {
@@ -885,6 +917,12 @@ body {
 /* ============================================================
    GRID UTILITIES
    ============================================================ */
+.grid-1col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--content-spacing-default);
+}
+
 .grid-2col {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -895,6 +933,40 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--content-spacing-default);
+}
+
+/* Grid toggle control */
+.grid-toggle {
+  display: flex;
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.grid-toggle__btn {
+  padding: 5px 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.grid-toggle__btn + .grid-toggle__btn {
+  border-left: 1px solid var(--color-border-primary);
+}
+
+.grid-toggle__btn.active {
+  background: var(--color-text-primary);
+  color: var(--color-text-light);
+}
+
+.grid-toggle__btn:not(.active):hover {
+  background: var(--color-surface-subtle);
+  color: var(--color-text-primary);
 }
 
 /* ============================================================

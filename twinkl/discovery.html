@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Name: Discovery</title>
+  <title>Twinkl Nav Redesign: Research</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap">
@@ -15,17 +15,16 @@
 
   <nav class="sidebar">
     <div class="sidebar__project">
-      <img src="images/twinkl_logo_cropped_300px.png" alt="Client logo" class="sidebar__logo">
-      <p class="body-bold" style="color: var(--color-text-primary)">Project Name</p>
-      <p class="body-x-small" style="color: var(--color-text-secondary); margin-top: 4px;">Project question or tagline goes here</p>
+      <img src="images/client-logo.png" alt="Twinkl logo" class="sidebar__logo">
+      <p class="body-bold" style="color: var(--color-text-primary)">Twinkl Nav Redesign</p>
+      <p class="body-x-small" style="color: var(--color-text-secondary); margin-top: 4px;">Senior / Lead Product Designer</p>
     </div>
     <div class="sidebar__nav">
-      <a href="introduction.html" class="sidebar__link">Introduction</a>
-      <a href="overview.html" class="sidebar__link">Overview</a>
-      <a href="discovery.html" class="sidebar__link active">Discovery</a>
+      <a href="introduction.html" class="sidebar__link">The Brief</a>
+      <a href="overview.html" class="sidebar__link">Pain Points</a>
+      <a href="discovery.html" class="sidebar__link active">Research</a>
       <a href="design.html" class="sidebar__link">Design</a>
-      <a href="development.html" class="sidebar__link">Development</a>
-      <a href="release.html" class="sidebar__link">Release</a>
+      <a href="release.html" class="sidebar__link">Outcomes</a>
     </div>
   </nav>
 
@@ -33,219 +32,178 @@
 
     <div class="page-title">
       <div class="page-title__inner">
-        <p class="body-x-small" style="color: var(--color-text-primary)">DD Month YYYY</p>
-        <h1 style="color: var(--color-text-primary)">Discovery</h1>
-        <p class="body-lead" style="color: var(--color-text-secondary); margin-top: 4px;">Research and user insights</p>
+        <p class="body-x-small" style="color: var(--color-text-primary)">27th May 2026</p>
+        <h1 style="color: var(--color-text-primary)">Research</h1>
+        <p style="font-family: var(--family-headings); font-size: var(--size-large); font-weight: var(--weight-400); color: var(--color-text-secondary); margin-top: 4px; line-height: 1.2;">User research and user flows</p>
       </div>
     </div>
 
     <div class="page-intro">
       <div class="page-intro__inner intro-text">
-        <p>[Intro paragraph. Describe the research phase: what methods were used, how long it ran, and what the team was trying to learn.]</p>
-        <p>&nbsp;</p>
-        <ul>
-          <li>[Research activity one, e.g. X user interviews across key user groups]</li>
-          <li>[Research activity two, e.g. X days of session recordings analysed]</li>
-          <li>[Research activity three, e.g. Competitor review across X comparable platforms]</li>
-        </ul>
+        <p>Scenario-based user research conducted with 3 participants to evaluate the current navigation. Key findings informed the design direction and user flows were created to map the experience.</p>
       </div>
     </div>
 
     <div class="sections">
 
+      <!-- Research stats -->
+      <div class="grid-3col">
+        <div class="info-card">
+          <p class="body-bold" style="color: var(--color-brand-primary); font-size: 3rem; line-height: 1;">3</p>
+          <p class="body-bold" style="color: var(--color-text-primary); margin-top: 6px;">Participants</p>
+          <p class="body-small" style="color: var(--color-text-secondary); margin-top: 4px;">All clicked the nav item directly rather than waiting for the hover-triggered mega menu to open.</p>
+        </div>
+        <div class="info-card">
+          <p class="body-bold" style="color: var(--color-brand-primary); font-size: 3rem; line-height: 1;">47s</p>
+          <p class="body-bold" style="color: var(--color-text-primary); margin-top: 6px;">Mean task time</p>
+          <p class="body-small" style="color: var(--color-text-secondary); margin-top: 4px;">Mean time across 3 participants on an unguided navigation task. High variance (38s&ndash;56s) driven by the hover delay and menu confusion.</p>
+        </div>
+        <div class="info-card">
+          <p class="body-bold" style="color: var(--color-brand-primary); font-size: 3rem; line-height: 1;">2/3</p>
+          <p class="body-bold" style="color: var(--color-text-primary); margin-top: 6px;">Participants</p>
+          <p class="body-small" style="color: var(--color-text-secondary); margin-top: 4px;">Commented unprompted that they expected clicking a nav item to navigate, not to trigger a dropdown.</p>
+        </div>
+      </div>
+
+      <!-- Research session video -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Research session</h3>
+        </div>
+        <video controls style="width: 100%; border-radius: 8px; display: block;">
+          <source src="images/research-session.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Key findings -->
+      <div class="card">
+        <div class="card-header" style="justify-content: space-between;">
+          <h3 style="color: var(--color-text-primary)">Key findings</h3>
+          <div class="grid-toggle">
+            <button class="grid-toggle__btn active" id="keyfindings-grid-btn" onclick="setPainPointsView('keyfindings', 'grid')" title="Grid view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button class="grid-toggle__btn" id="keyfindings-list-btn" onclick="setPainPointsView('keyfindings', 'list')" title="List view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="12" width="14" height="2" rx="1" fill="currentColor"/></svg>
+            </button>
+          </div>
+        </div>
+        <div id="keyfindings-items" class="grid-2col" data-grid-class="grid-2col">
+
+          <div class="info-card">
+            <div class="badge">01</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Users bypass the mega menu entirely</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">All 3 participants clicked nav items directly rather than waiting for the hover-triggered mega menu. The menu was never used as intended. This points to a fundamental mismatch between the designed interaction and natural user behaviour.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">02</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">The nav reflects Twinkl&rsquo;s structure, not users&rsquo; mental models</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">2 of 3 participants expressed uncertainty about where to start. The mix of age groups, subjects, commercial items, and audience types in a single row gave users no clear entry point based on how they think about the curriculum.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">03</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">The hover delay reads as a broken interaction</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The 250ms reveal delay on the mega menu led all 3 participants to believe their hover had not registered. They clicked through before the menu appeared, navigating away from the nav before it had a chance to open.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">04</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Dual-function nav items cause consistent confusion</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">2 of 3 participants commented unprompted that they expected clicking a nav item to navigate, not open a dropdown. The same target producing two different outcomes with no visual distinction created repeated hesitation across all sessions.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- User flows -->
       <div class="card--brand">
         <div class="card-header">
-          <h2 style="color: var(--color-text-light)">Research objective</h2>
+          <h2 style="color: var(--color-text-light)">User flows</h2>
         </div>
-        <p class="body" style="color: var(--color-text-light)">
-          [Research objective. State in 1–2 sentences what the research was trying to find out and how those findings would inform the design direction.]
-        </p>
+        <p class="body" style="color: var(--color-text-light)">Two flows were mapped to capture the current experience: an unhappy path showing where the navigation breaks down, and a happy path showing the intended journey through the redesign.</p>
       </div>
 
+      <!-- Unhappy path -->
       <div class="card">
         <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">Research methods</h3>
+          <h3 style="color: var(--color-text-primary)">Unhappy path</h3>
         </div>
-        <div class="grid-3col">
-
-          <div class="info-card">
-            <div class="badge">01</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Method name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this research method. Explain who was recruited, how sessions were conducted, and what was being observed or measured.]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="badge">02</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Method name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this research method. Explain who was recruited, how sessions were conducted, and what was being observed or measured.]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="badge">03</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Method name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this research method. Explain who was recruited, how sessions were conducted, and what was being observed or measured.]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="badge">04</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Method name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this research method. Explain who was recruited, how sessions were conducted, and what was being observed or measured.]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="badge">05</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Method name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this research method. Explain who was recruited, how sessions were conducted, and what was being observed or measured.]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="badge">06</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Method name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Description of this research method. Explain who was recruited, how sessions were conducted, and what was being observed or measured.]</p>
-          </div>
-
-        </div>
+        <p class="body-small" style="color: var(--color-text-secondary); margin-bottom: 16px;">The current experience: users click nav items directly, bypass the mega menu, or fall back to search out of frustration.</p>
+        <img src="images/unhappy-path.png" alt="Unhappy path user flow diagram" style="width: 100%; border-radius: 8px; display: block;">
       </div>
 
+      <!-- Happy path -->
       <div class="card">
         <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">User research — interview session</h3>
+          <h3 style="color: var(--color-text-primary)">Happy path</h3>
         </div>
-        <p class="body-small" style="color: var(--color-text-secondary)">Moderated usability session with U2, a newly qualified teacher (NQT). The task was to find Year 1 phonics reading comprehension resources starting from the homepage. The clip captures first contact with the existing navigation — showing the hover delay, the dual-function confusion on nav items, and the moment the user clicks through the mega menu rather than waiting for it.</p>
-
-        <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; border: 1px solid #e8e8e8; background: #000;">
-          <video
-            controls
-            style="display: block; width: 100%; max-height: 560px; background: #000;"
-            src="../twinkl-presentation/assets/interview-u2.mp4"
-          >
-            Your browser does not support the video element.
-          </video>
-        </div>
-
-        <div class="grid-3col" style="margin-top: 0;">
-          <div class="info-card">
-            <p class="body-bold" style="color: var(--color-text-primary)">3 / 3 participants</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">clicked the nav item directly rather than waiting for the hover-triggered mega menu to open.</p>
-          </div>
-          <div class="info-card">
-            <p class="body-bold" style="color: var(--color-text-primary)">47s mean task time</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">across 3 participants on an unguided navigation task. High variance (38s–56s) driven by the hover delay and menu confusion.</p>
-          </div>
-          <div class="info-card">
-            <p class="body-bold" style="color: var(--color-text-primary)">2 / 3 participants</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">commented unprompted that they expected clicking a nav item to navigate — not to trigger a dropdown.</p>
-          </div>
-        </div>
+        <p class="body-small" style="color: var(--color-text-secondary); margin-bottom: 16px;">The proposed redesign: clicking a nav item opens the two-panel mega menu; the user selects an age group or subject and navigates directly to a resource page.</p>
+        <img src="images/happy-path.png" alt="Happy path user flow diagram" style="width: 100%; border-radius: 8px; display: block;">
       </div>
 
+      <!-- Pages to consider -->
       <div class="card">
-        <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">User personas</h3>
+        <div class="card-header" style="justify-content: space-between;">
+          <h3 style="color: var(--color-text-primary)">Pages to consider</h3>
+          <div class="grid-toggle">
+            <button class="grid-toggle__btn active" id="pagestoconsider-grid-btn" onclick="setPainPointsView('pagestoconsider', 'grid')" title="Grid view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button class="grid-toggle__btn" id="pagestoconsider-list-btn" onclick="setPainPointsView('pagestoconsider', 'list')" title="List view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="12" width="14" height="2" rx="1" fill="currentColor"/></svg>
+            </button>
+          </div>
         </div>
-        <div class="grid-3col">
+        <div id="pagestoconsider-items" class="grid-3col" data-grid-class="grid-3col">
 
           <div class="info-card">
-            <img src="https://i.pravatar.cc/80?img=44" alt="Persona 1" class="persona-photo">
-            <p class="body-bold" style="color: var(--color-text-primary)">[Name], [Role]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Persona description. Describe their context, habits, goals, and any relevant frustrations with the current experience in 2–3 sentences.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Homepage</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The entry point for logged-out visitors. Where a teacher&rsquo;s first impression of Twinkl is formed and the navigation experience begins.</p>
           </div>
 
           <div class="info-card">
-            <img src="https://i.pravatar.cc/80?img=53" alt="Persona 2" class="persona-photo">
-            <p class="body-bold" style="color: var(--color-text-primary)">[Name], [Role]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Persona description. Describe their context, habits, goals, and any relevant frustrations with the current experience in 2–3 sentences.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Country / region selection state</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Twinkl operates in 190+ countries. Nav content, terminology and resources all change by region, but the current flag selector is icon-only with no label or prompt, easy to miss and poorly understood.</p>
           </div>
 
           <div class="info-card">
-            <img src="https://i.pravatar.cc/80?img=47" alt="Persona 3" class="persona-photo">
-            <p class="body-bold" style="color: var(--color-text-primary)">[Name], [Role]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Persona description. Describe their context, habits, goals, and any relevant frustrations with the current experience in 2–3 sentences.]</p>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">Key insights</h3>
-        </div>
-        <div class="grid-2col">
-
-          <div class="info-card">
-            <div class="badge">01</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Insight title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Insight detail. Describe what was observed, how many participants it affected, and what it implies for the design direction.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Mega menu</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The primary intended browsing mechanism. Triggered by hover only, with a delay that causes most users to click instead, bypassing it entirely. 60+ links across 6 columns with no clear hierarchy.</p>
           </div>
 
           <div class="info-card">
-            <div class="badge">02</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Insight title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Insight detail. Describe what was observed, how many participants it affected, and what it implies for the design direction.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Category page</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Where clicking a nav item lands the user. The nav uses age ranges (Age 3&ndash;5), the page uses Key Stage terminology (KS1), and the breadcrumb uses a third variation. Three ways of describing the same thing on one page.</p>
           </div>
 
           <div class="info-card">
-            <div class="badge">03</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Insight title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Insight detail. Describe what was observed, how many participants it affected, and what it implies for the design direction.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Sub-category page</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Reached via a mega menu selection. On mobile this page is reached directly as the mega menu does not exist on smaller viewports.</p>
           </div>
 
           <div class="info-card">
-            <div class="badge">04</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Insight title]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Insight detail. Describe what was observed, how many participants it affected, and what it implies for the design direction.]</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Search results page</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The fallback when navigation fails. Users turn to search out of frustration rather than preference. Filters use age ranges rather than Key Stages, continuing the taxonomy inconsistency.</p>
+          </div>
+
+          <div class="info-card">
+            <p class="body-bold" style="color: var(--color-text-primary)">Resource detail page</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The end destination. Where Twinkl&rsquo;s value is most clearly demonstrated but currently a download attempt triggers a forced sign-up gate before that value has been experienced.</p>
           </div>
 
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">User needs</h3>
-        </div>
-        <div class="grid-2col">
+    </div><!-- /sections -->
 
-          <div class="info-card">
-            <div class="user-need-tag">
-              <img src="https://i.pravatar.cc/80?img=44" alt="Persona 1">
-              <span>[Name], [Role]</span>
-            </div>
-            <p class="body-bold" style="color: var(--color-text-primary)">As a [role], I need to [goal] so that [outcome].</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">Priority: [High / Medium / Low]. [Explain which design decision this need drives.]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="user-need-tag">
-              <img src="https://i.pravatar.cc/80?img=26" alt="Persona 2">
-              <span>[Name], [Role]</span>
-            </div>
-            <p class="body-bold" style="color: var(--color-text-primary)">As a [role], I need to [goal] so that [outcome].</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">Priority: [High / Medium / Low]. [Explain which design decision this need drives.]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="user-need-tag">
-              <img src="https://i.pravatar.cc/80?img=53" alt="Persona 3">
-              <span>[Name], [Role]</span>
-            </div>
-            <p class="body-bold" style="color: var(--color-text-primary)">As a [role], I need to [goal] so that [outcome].</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">Priority: [High / Medium / Low]. [Explain which design decision this need drives.]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="user-need-tag">
-              <img src="https://i.pravatar.cc/80?img=47" alt="Persona 4">
-              <span>[Name], [Role]</span>
-            </div>
-            <p class="body-bold" style="color: var(--color-text-primary)">As a [role], I need to [goal] so that [outcome].</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">Priority: [High / Medium / Low]. [Explain which design decision this need drives.]</p>
-          </div>
-
-        </div>
-      </div>
-
+    <div class="page-footer-nav">
+      <a href="overview.html" class="page-footer-nav__link">&lsaquo; Pain Points</a>
+      <a href="design.html" class="page-footer-nav__link">Design &rsaquo;</a>
     </div>
-  </div>
+
+  </div><!-- /page -->
 
   </div><!-- /layout -->
 

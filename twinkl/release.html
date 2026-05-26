@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Name: Release</title>
+  <title>Twinkl Nav Redesign: Outcomes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap">
@@ -15,17 +15,16 @@
 
   <nav class="sidebar">
     <div class="sidebar__project">
-      <img src="images/twinkl_logo_cropped_300px.png" alt="Client logo" class="sidebar__logo">
-      <p class="body-bold" style="color: var(--color-text-primary)">Project Name</p>
-      <p class="body-x-small" style="color: var(--color-text-secondary); margin-top: 4px;">Project question or tagline goes here</p>
+      <img src="images/client-logo.png" alt="Twinkl logo" class="sidebar__logo">
+      <p class="body-bold" style="color: var(--color-text-primary)">Twinkl Nav Redesign</p>
+      <p class="body-x-small" style="color: var(--color-text-secondary); margin-top: 4px;">Senior / Lead Product Designer</p>
     </div>
     <div class="sidebar__nav">
-      <a href="introduction.html" class="sidebar__link">Introduction</a>
-      <a href="overview.html" class="sidebar__link">Overview</a>
-      <a href="discovery.html" class="sidebar__link">Discovery</a>
+      <a href="introduction.html" class="sidebar__link">The Brief</a>
+      <a href="overview.html" class="sidebar__link">Pain Points</a>
+      <a href="discovery.html" class="sidebar__link">Research</a>
       <a href="design.html" class="sidebar__link">Design</a>
-      <a href="development.html" class="sidebar__link">Development</a>
-      <a href="release.html" class="sidebar__link active">Release</a>
+      <a href="release.html" class="sidebar__link active">Outcomes</a>
     </div>
   </nav>
 
@@ -33,16 +32,192 @@
 
     <div class="page-title">
       <div class="page-title__inner">
-        <p class="body-x-small" style="color: var(--color-text-primary)">DD Month YYYY</p>
-        <h1 style="color: var(--color-text-primary)">Release</h1>
-        <p class="body-lead" style="color: var(--color-text-secondary); margin-top: 4px;">Launch plan and success metrics</p>
+        <p class="body-x-small" style="color: var(--color-text-primary)">27th May 2026</p>
+        <h1 style="color: var(--color-text-primary)">Outcomes</h1>
+        <p style="font-family: var(--family-headings); font-size: var(--size-large); font-weight: var(--weight-400); color: var(--color-text-secondary); margin-top: 4px; line-height: 1.2;">Measuring success</p>
+      </div>
+    </div>
+
+    <div class="page-intro">
+      <div class="page-intro__inner intro-text">
+        <p>Research conducted with 3 participants using a scenario-based task, before and after the redesign. Results are based on a small sample. Further testing with a larger sample would validate these findings at scale.</p>
       </div>
     </div>
 
     <div class="sections">
+
+      <!-- Process walkthrough video -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">Process walkthrough</h3>
+        </div>
+        <video controls style="width: 100%; border-radius: 8px; display: block;">
+          <source src="images/process-walkthrough.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Before / after results -->
+      <div class="card">
+        <div class="card-header">
+          <h3 style="color: var(--color-text-primary)">User testing results</h3>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary); margin-bottom: 20px;">Scenario-based task with 3 participants, before and after the redesign.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+
+          <!-- Title row -->
+          <p class="body-bold" style="color: var(--color-text-primary)">Mega menu access</p>
+          <p class="body-bold" style="color: var(--color-text-primary)">Task completion time</p>
+          <p class="body-bold" style="color: var(--color-text-primary)">Interaction expectation</p>
+
+          <!-- Before row -->
+          <div class="info-card">
+            <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #ef4444; margin-bottom: 4px;">Before</p>
+            <p style="font-size: 2.5rem; font-weight: 900; line-height: 1; color: #ef4444;">0/3</p>
+            <p class="body-small" style="color: var(--color-text-secondary); margin-top: 6px;">No participants accessed the mega menu. All clicked the nav item directly, bypassing the hover-triggered menu entirely.</p>
+          </div>
+          <div class="info-card">
+            <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #ef4444; margin-bottom: 4px;">Before</p>
+            <p style="font-size: 2.5rem; font-weight: 900; line-height: 1; color: #ef4444;">47s</p>
+            <p class="body-small" style="color: var(--color-text-secondary); margin-top: 6px;">Mean time across 3 participants on an unguided navigation task. High variance (38s&ndash;56s) driven by hover delay and menu confusion.</p>
+          </div>
+          <div class="info-card">
+            <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #ef4444; margin-bottom: 4px;">Before</p>
+            <p style="font-size: 2.5rem; font-weight: 900; line-height: 1; color: #ef4444;">2/3</p>
+            <p class="body-small" style="color: var(--color-text-secondary); margin-top: 6px;">Participants commented unprompted that they expected clicking a nav item to navigate, not to trigger a dropdown.</p>
+          </div>
+
+          <!-- After row -->
+          <div class="info-card">
+            <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 4px;">After</p>
+            <p style="font-size: 2.5rem; font-weight: 900; line-height: 1; color: #16a34a;">3/3</p>
+            <p class="body-small" style="color: var(--color-text-secondary); margin-top: 6px;">All participants clicked and accessed the mega menu straight away with no confusion about the interaction.</p>
+          </div>
+          <div class="info-card">
+            <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 4px;">After</p>
+            <p style="font-size: 2.5rem; font-weight: 900; line-height: 1; color: #16a34a;">16s</p>
+            <p class="body-small" style="color: var(--color-text-secondary); margin-top: 6px;">Mean time across 3 participants. Low variance (12s&ndash;19s) suggesting the interaction model was clear and consistent across users.</p>
+          </div>
+          <div class="info-card">
+            <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 4px;">After</p>
+            <p style="font-size: 2.5rem; font-weight: 900; line-height: 1; color: #16a34a;">3/3</p>
+            <p class="body-small" style="color: var(--color-text-secondary); margin-top: 6px;">All participants navigated without prompting or confusion. No comments about unexpected behaviour.</p>
+          </div>
+
+          <!-- Summary row -->
+          <div style="background: var(--color-brand-primary); border-radius: 8px; padding: 12px 16px;">
+            <p class="body-bold" style="color: #ffffff;">100% Success rate</p>
+          </div>
+          <div style="background: var(--color-brand-primary); border-radius: 8px; padding: 12px 16px;">
+            <p class="body-bold" style="color: #ffffff;">66% Faster on average</p>
+          </div>
+          <div style="background: var(--color-brand-primary); border-radius: 8px; padding: 12px 16px;">
+            <p class="body-bold" style="color: #ffffff;">Interaction met expectations</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Post-launch metrics -->
+      <div class="card">
+        <div class="card-header" style="justify-content: space-between;">
+          <h3 style="color: var(--color-text-primary)">Post-launch metrics</h3>
+          <div class="grid-toggle">
+            <button class="grid-toggle__btn active" id="postlaunch-grid-btn" onclick="setPainPointsView('postlaunch', 'grid')" title="Grid view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button class="grid-toggle__btn" id="postlaunch-list-btn" onclick="setPainPointsView('postlaunch', 'list')" title="List view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="12" width="14" height="2" rx="1" fill="currentColor"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary); margin-bottom: 16px;">How I would measure success at scale.</p>
+        <div id="postlaunch-items" class="grid-2col" data-grid-class="grid-2col">
+
+          <div class="info-card">
+            <div class="badge">01</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Task completion rate</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The primary success signal. Can a teacher find what they need in fewer steps and less time? Measured through moderated usability testing with a representative sample of educators before and after release.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">02</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Nav vs search ratio</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">If the redesign is working, fewer users should need to fall back to search out of frustration. A shift toward nav-initiated journeys indicates the structure is matching how teachers think.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">03</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Time on task</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Reduction in mean time and variance across common journeys such as finding a KS2 maths worksheet. Low variance is as important as low mean &mdash; it indicates the design works consistently across different users, not just some of them.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">04</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Conversion rate</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Do users who successfully navigate to a resource convert to paid subscriptions at a higher rate than those who drop off mid-journey? A nav that demonstrates Twinkl&rsquo;s value faster should show up in acquisition data.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- What I would test next -->
+      <div class="card">
+        <div class="card-header" style="justify-content: space-between;">
+          <h3 style="color: var(--color-text-primary)">What I would test next</h3>
+          <div class="grid-toggle">
+            <button class="grid-toggle__btn active" id="whattotest-grid-btn" onclick="setPainPointsView('whattotest', 'grid')" title="Grid view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button class="grid-toggle__btn" id="whattotest-list-btn" onclick="setPainPointsView('whattotest', 'list')" title="List view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="12" width="14" height="2" rx="1" fill="currentColor"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="body-small" style="color: var(--color-text-secondary); margin-bottom: 16px;">Recommended next steps to validate and iterate.</p>
+        <div id="whattotest-items" class="grid-2col" data-grid-class="grid-2col">
+
+          <div class="info-card">
+            <div class="badge">01</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Usability testing at scale</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Moderated usability testing with a larger sample of classroom teachers across different Key Stages and regions.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">02</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">A/B test the interaction model</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">A/B test the click-only mega menu trigger against the current hover behaviour, measuring task completion and time on task.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">03</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Card sorting</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Card sorting exercise with real educators to validate the proposed taxonomy &mdash; do Browse by age, Browse by subject and Teachers match how teachers mentally organise their work?</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">04</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Accessibility audit</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Full WCAG 2.1 AA accessibility audit against the redesigned components before development handover.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">05</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Post-launch monitoring</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Monitor nav vs search usage ratio and conversion rate in the first 30 days post-launch to establish a baseline for iteration.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /sections -->
+
+    <div class="page-footer-nav">
+      <a href="design.html" class="page-footer-nav__link">&lsaquo; Design</a>
+      <span></span>
     </div>
 
-  </div>
+  </div><!-- /page -->
 
   </div><!-- /layout -->
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Name: Overview</title>
+  <title>Twinkl Nav Redesign: Pain Points</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap">
@@ -15,17 +15,16 @@
 
   <nav class="sidebar">
     <div class="sidebar__project">
-      <img src="images/twinkl_logo_cropped_300px.png" alt="Client logo" class="sidebar__logo">
-      <p class="body-bold" style="color: var(--color-text-primary)">Project Name</p>
-      <p class="body-x-small" style="color: var(--color-text-secondary); margin-top: 4px;">Project question or tagline goes here</p>
+      <img src="images/client-logo.png" alt="Twinkl logo" class="sidebar__logo">
+      <p class="body-bold" style="color: var(--color-text-primary)">Twinkl Nav Redesign</p>
+      <p class="body-x-small" style="color: var(--color-text-secondary); margin-top: 4px;">Senior / Lead Product Designer</p>
     </div>
     <div class="sidebar__nav">
-      <a href="introduction.html" class="sidebar__link">Introduction</a>
-      <a href="overview.html" class="sidebar__link active">Overview</a>
-      <a href="discovery.html" class="sidebar__link">Discovery</a>
+      <a href="introduction.html" class="sidebar__link">The Brief</a>
+      <a href="overview.html" class="sidebar__link active">Pain Points</a>
+      <a href="discovery.html" class="sidebar__link">Research</a>
       <a href="design.html" class="sidebar__link">Design</a>
-      <a href="development.html" class="sidebar__link">Development</a>
-      <a href="release.html" class="sidebar__link">Release</a>
+      <a href="release.html" class="sidebar__link">Outcomes</a>
     </div>
   </nav>
 
@@ -33,65 +32,35 @@
 
     <div class="page-title">
       <div class="page-title__inner">
-        <p class="body-x-small" style="color: var(--color-text-primary)">DD Month YYYY</p>
-        <h1 style="color: var(--color-text-primary)">Overview</h1>
-        <p style="font-family: var(--family-headings); font-size: var(--size-large); font-weight: var(--weight-400); color: var(--color-text-secondary); margin-top: 4px; line-height: 1.2;">Redesigning the top navigation for 1.5 million resources and 6 million users.</p>
+        <p class="body-x-small" style="color: var(--color-text-primary)">27th May 2026</p>
+        <h1 style="color: var(--color-text-primary)">Pain Points</h1>
+        <p style="font-family: var(--family-headings); font-size: var(--size-large); font-weight: var(--weight-400); color: var(--color-text-secondary); margin-top: 4px; line-height: 1.2;">Heuristic review of the current navigation across desktop and mobile</p>
       </div>
     </div>
 
     <div class="page-intro">
       <div class="page-intro__inner intro-text">
-        <p>Twinkl's top navigation serves over 6 million educators, parents, and school leaders browsing a catalogue of 1.5 million resources. The existing nav collapses too many audiences, taxonomies, and commercial goals into a single flat row, producing competing calls to action and a hover-triggered mega menu that research shows users consistently bypass. This project redesigns it around clear intent-based categories and a click-first interaction pattern.</p>
-        <p>&nbsp;</p>
-        <ul>
-          <li>Collapse 12+ mixed nav items into five intent-based categories covering age, subject, audience, and commercial destinations</li>
-          <li>Replace the hover-triggered mega menu with a click-first interaction that matches observed user behaviour</li>
-          <li>Improve time to first resource with a two-panel mega menu that lets users navigate by curriculum stage without leaving the nav</li>
-          <li>Validate the redesign through moderated usability testing, benchmarked against task-completion times on the existing site</li>
-        </ul>
+        <p>A heuristic review of the existing Twinkl navigation identified pain points across four areas: the header, navigation structure, mega menu, and mobile experience.</p>
       </div>
     </div>
 
     <div class="sections">
 
-      <!-- Existing design: screenshot mockup -->
+      <!-- Header pain points -->
       <div class="card">
-        <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">Existing design</h3>
+        <div class="card-header" style="justify-content: space-between;">
+          <h3 style="color: var(--color-text-primary)">Header</h3>
+          <div class="grid-toggle">
+            <button class="grid-toggle__btn active" id="header-grid-btn" onclick="setPainPointsView('header', 'grid')" title="Grid view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button class="grid-toggle__btn" id="header-list-btn" onclick="setPainPointsView('header', 'list')" title="List view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="12" width="14" height="2" rx="1" fill="currentColor"/></svg>
+            </button>
+          </div>
         </div>
-        <p class="body-small" style="color: var(--color-text-secondary)">[Brief description of what the existing design shows and why it is the starting point for this project.]</p>
-        <img src="images/exisiting-design.png" alt="Existing Twinkl navigation design" style="width: 100%; display: block; border-radius: 8px; margin-top: 16px;" />
-      </div>
-
-      <!-- Scenario (brand card) -->
-      <div class="card--brand">
-        <div class="card-header">
-          <h2 style="color: var(--color-text-light)">Scenario</h2>
-        </div>
-        <p class="body" style="color: var(--color-text-light)">
-          [Scenario description. Set the scene for the project: describe the product, the business context, and the specific problem or opportunity that has been identified. Include relevant background that helps a reader understand the stakes and why this work matters. 3–5 sentences.]
-        </p>
-      </div>
-
-      <!-- The problem -->
-      <div class="card">
-        <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">The problem</h3>
-        </div>
-        <p class="body" style="color: var(--color-text-secondary)">
-          [Problem paragraph one. Describe the core issue in detail: what is broken, where it manifests, and who is affected. Be specific about the experience and its consequences.]
-        </p>
-        <p class="body" style="color: var(--color-text-secondary)">
-          [Problem paragraph two. Expand on any downstream effects or secondary issues caused by the primary problem. Describe what happens to users who encounter it.]
-        </p>
-      </div>
-
-      <!-- Pain points -->
-      <div class="card">
-        <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">Pain points</h3>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 12px;">
+        <img src="images/header-pain-points.png" alt="Annotated header screenshot" style="width: 100%; border-radius: 8px; display: block; margin-bottom: 20px;">
+        <div id="header-items" class="grid-3col">
 
           <div class="info-card">
             <div class="badge">01</div>
@@ -107,138 +76,115 @@
 
           <div class="info-card">
             <div class="badge">03</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">No label on the language selector</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">The country flag is the only affordance for region switching. It is accessible only to users who recognise the flag, excluding international visitors and anyone unfamiliar with UK regional flags.</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Personalisation control has no label</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The flag icon is the only affordance for what is actually a full personalisation control. Clicking it opens a modal to set Country, Region, Language, and Career, and the navigation structure changes based on those selections. The icon gives no indication of this scope, and without a text label the control has no accessible name, failing WCAG 1.1.1 and 2.4.6 at Level AA.</p>
           </div>
 
+        </div>
+      </div>
+
+      <!-- Navigation Structure pain points -->
+      <div class="card">
+        <div class="card-header" style="justify-content: space-between;">
+          <h3 style="color: var(--color-text-primary)">Navigation Structure</h3>
+          <div class="grid-toggle">
+            <button class="grid-toggle__btn active" id="navstructure-grid-btn" onclick="setPainPointsView('navstructure', 'grid')" title="Grid view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button class="grid-toggle__btn" id="navstructure-list-btn" onclick="setPainPointsView('navstructure', 'list')" title="List view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="12" width="14" height="2" rx="1" fill="currentColor"/></svg>
+            </button>
+          </div>
+        </div>
+        <img src="images/nav-structure-pain-points.png" alt="Annotated navigation structure screenshot" style="width: 100%; border-radius: 8px; display: block; margin-bottom: 20px;">
+        <div id="navstructure-items" class="grid-2col" data-grid-class="grid-2col">
+
           <div class="info-card">
-            <div class="badge">04</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">Disney chip reads as a selected state</p>
+            <div class="badge">01</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Disney chip</p>
             <p class="body-small" style="color: var(--color-text-secondary)">The Disney partnership chip is styled in the same colour that standard nav items adopt on hover, causing users to interpret it as the currently active section rather than a featured partner link.</p>
           </div>
 
           <div class="info-card">
-            <div class="badge">05</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">Dual-function nav items with no signposting</p>
+            <div class="badge">02</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Dual-function nav items</p>
             <p class="body-small" style="color: var(--color-text-secondary)">Hovering over a nav item opens the mega menu; clicking navigates to a category landing page. The same target produces two different outcomes with no visual indication of which action does what, creating consistent confusion in user testing.</p>
           </div>
 
           <div class="info-card">
-            <div class="badge">06</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">Hover delay reads as a broken interaction</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">The mega menu reveal delay of approximately 200ms leads users to believe their hover did not register. All three research participants clicked through the delay, navigating away from the nav before the menu had a chance to open.</p>
+            <div class="badge">03</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Hover delay</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The mega menu reveal delay of 250ms leads users to believe their hover did not register. All three research participants clicked through the delay, navigating away from the nav before the menu had a chance to open.</p>
           </div>
 
           <div class="info-card">
-            <div class="badge">07</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">Overlapping age ranges cause ambiguity</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">The age categories 3–5 and 5–7 share the boundary year, leaving users uncertain which group a 5-year-old belongs to. Without clarification, parents and teachers may browse the wrong category or check both, adding unnecessary friction to a task that should be immediate.</p>
+            <div class="badge">04</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Overlapping age ranges</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The age categories 8&ndash;11 and 11&ndash;16 share a boundary year. Without clarification, users are left uncertain which group an 11-year-old belongs to, adding unnecessary friction to a task that should be immediate.</p>
           </div>
 
         </div>
       </div>
 
-      <!-- Assumptions -->
+      <!-- Mega Menu pain points -->
       <div class="card">
-        <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">Assumptions</h3>
+        <div class="card-header" style="justify-content: space-between;">
+          <h3 style="color: var(--color-text-primary)">Mega Menu</h3>
+          <div class="grid-toggle">
+            <button class="grid-toggle__btn active" id="megamenu-grid-btn" onclick="setPainPointsView('megamenu', 'grid')" title="Grid view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button class="grid-toggle__btn" id="megamenu-list-btn" onclick="setPainPointsView('megamenu', 'list')" title="List view">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="7" width="14" height="2" rx="1" fill="currentColor"/><rect x="1" y="12" width="14" height="2" rx="1" fill="currentColor"/></svg>
+            </button>
+          </div>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 12px;">
+        <img src="images/mega-menu-pain-points.png" alt="Annotated mega menu screenshot" style="width: 100%; border-radius: 8px; display: block; margin-bottom: 20px;">
+        <div id="megamenu-items" class="grid-2col" data-grid-class="grid-2col">
 
           <div class="info-card">
             <div class="badge">01</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">Disney button is a commercial priority</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">The Disney partnership chip is assumed to represent a high-priority commercial relationship that must be preserved and given prominent placement in any redesign. All design decisions treat this as a fixed constraint rather than an element open to removal or de-emphasis. If this assumption is incorrect, the Disney chip could be absorbed into the standard nav taxonomy like any other content category.</p>
+            <p class="body-bold" style="color: var(--color-text-primary)">Content truncates</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">Items such as Topics and Events and Festivals are clipped at the bottom of the mega menu. A small arrow is present but easy to miss, and many users will not attempt to scroll because the affordance does not clearly signal that more content exists below.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="badge">02</div>
+            <p class="body-bold" style="color: var(--color-text-primary)">Content is mixed</p>
+            <p class="body-small" style="color: var(--color-text-secondary)">The first column of the mega menu (Twinkl Recommends) is a promotional editorial list, not a navigation category. Users encounter marketing copy before they reach any subject or age content, breaking the expected pattern of a nav menu. Link labels compound this: entries like &ldquo;WIN! A space on a CPD course for free, over 70+ to choose from!&rdquo; sit alongside single-word links like Phonics and Writing, making the column slow to scan and visually inconsistent with the rest of the menu. User research reinforced this: participants described the Twinkl Recommends column as distracting and felt it was &ldquo;in the way&rdquo; when trying to locate specific content categories.</p>
           </div>
 
         </div>
       </div>
 
-      <!-- Key metrics -->
+      <!-- Mobile pain points -->
       <div class="card">
         <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">Key metrics</h3>
+          <h3 style="color: var(--color-text-primary)">Mobile</h3>
         </div>
-        <div class="grid-3col">
-
-          <div class="info-card">
-            <p class="body-bold" style="color: var(--color-text-primary)">XX%</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
-          </div>
-
-          <div class="info-card">
-            <p class="body-bold" style="color: var(--color-text-primary)">XX%</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
-          </div>
-
-          <div class="info-card">
-            <p class="body-bold" style="color: var(--color-text-primary)">XX%</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
-          </div>
-
-          <div class="info-card">
-            <p class="body-bold" style="color: var(--color-text-primary)">XX%</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
-          </div>
-
-          <div class="info-card">
-            <p class="body-bold" style="color: var(--color-text-primary)">XX+</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
-          </div>
-
-          <div class="info-card">
-            <p class="body-bold" style="color: var(--color-text-primary)">£X.Xm</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Metric description. Explain what this figure measures and over what period.]</p>
-          </div>
-
+        <div class="info-card">
+          <div class="badge">01</div>
+          <p class="body-bold" style="color: var(--color-text-primary)">Mobile navigation</p>
+          <ul style="margin-top: 8px; padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+            <li class="body-small" style="color: var(--color-text-secondary)">The mobile nav is a horizontally scrolling strip with no scroll indicator or fade. Items such as Age 8&ndash;11 onwards are visibly truncated on the right with no affordance to suggest more exist.</li>
+            <li class="body-small" style="color: var(--color-text-secondary)">The Disney chip retains its prominent first position on mobile, appearing before Home and all age categories.</li>
+            <li class="body-small" style="color: var(--color-text-secondary)">The Join CTA sits in the header alongside Sign In and the flag, competing for attention in a constrained space.</li>
+            <li class="body-small" style="color: var(--color-text-secondary)">The flag-only language selector persists on mobile with the same accessibility issue as desktop, with no text label and no accessible name for screen readers.</li>
+            <li class="body-small" style="color: var(--color-text-secondary)">Nav items in the strip appear small and closely spaced, potentially falling below the 44&times;44px minimum touch target size recommended by WCAG 2.5.5.</li>
+          </ul>
         </div>
-      </div>
 
-      <!-- Design brief -->
-      <div class="card">
-        <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">Design brief</h3>
-        </div>
-        <p class="body" style="color: var(--color-text-secondary)">
-          [Design brief. Describe the scope and goals of the design work in 2–3 sentences. Include the key constraints, target users, and intended outcomes. Be specific about what success looks like.]
-        </p>
-      </div>
+        <img src="images/existing-navigation-02.png" alt="Existing Twinkl mobile navigation" style="display: block; margin: 0 auto; width: 400px; max-width: 100%; border-radius: 8px;">
 
-      <!-- Stakeholders -->
-      <div class="card">
-        <div class="card-header">
-          <h3 style="color: var(--color-text-primary)">Stakeholders</h3>
-        </div>
-        <div class="grid-3col">
-
-          <div class="info-card">
-            <div class="badge badge--maroon">AA</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Role title]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="badge badge--blue">BB</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Role title]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="badge badge--teal">CC</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Role title]</p>
-          </div>
-
-          <div class="info-card">
-            <div class="badge badge--green">DD</div>
-            <p class="body-bold" style="color: var(--color-text-primary)">[Name]</p>
-            <p class="body-small" style="color: var(--color-text-secondary)">[Role title]</p>
-          </div>
-
-        </div>
       </div>
 
     </div><!-- /sections -->
+
+    <div class="page-footer-nav">
+      <a href="introduction.html" class="page-footer-nav__link">&lsaquo; The Brief</a>
+      <a href="discovery.html" class="page-footer-nav__link">Research &rsaquo;</a>
+    </div>
+
   </div><!-- /page -->
 
   </div><!-- /layout -->
