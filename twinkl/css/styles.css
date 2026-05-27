@@ -1753,33 +1753,30 @@ html[data-theme="nhs"] textarea:focus {
 
   .sidebar__nav {
     display: flex;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
     flex-direction: column;
     gap: 2px;
-    padding: 8px 12px 12px;
+    width: 100%;
+    margin-left: 0;
     background: var(--color-surface-subtle);
-    border-bottom: 1px solid var(--color-border-primary);
-    z-index: 49;
+    border-top: 1px solid var(--color-border-primary);
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
-    visibility: hidden;
-    transform: translateY(-6px);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.2s ease;
   }
 
   .sidebar__nav--open {
+    max-height: 300px;
     opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    padding: 8px 12px 12px;
   }
 
   .sidebar {
     position: relative;
     padding: 8px 12px;
     gap: 8px;
-    overflow: visible;
+    overflow: hidden;
+    flex-wrap: wrap;
   }
 
   .sidebar__link {
