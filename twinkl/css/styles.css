@@ -1705,6 +1705,7 @@ html[data-theme="nhs"] textarea:focus {
     flex-direction: row;
     gap: 4px;
     flex-shrink: 0;
+    margin-left: auto;
   }
 
   .sidebar__link {
