@@ -1592,3 +1592,210 @@ html[data-theme="nhs"] textarea:focus {
   margin: 0;
   line-height: 1.5;
 }
+
+/* ============================================================
+   RESULTS GRID (user testing before/after table)
+   ============================================================ */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* ============================================================
+   HAMBURGER BUTTON (hidden by default, shown on mobile)
+   ============================================================ */
+.sidebar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  margin-left: auto;
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-md);
+  background: transparent;
+  cursor: pointer;
+  padding: 7px;
+}
+
+.sidebar__hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--color-text-primary);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.sidebar__hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.sidebar__hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.sidebar__hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+
+  :root {
+    --size-xxl:          48px;
+    --size-xl:           36px;
+    --size-large:        26px;
+    --size-m:            22px;
+    --line-height-xxl:   56px;
+    --line-height-xl:    44px;
+    --line-height-large: 32px;
+    --line-height-m:     30px;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 12px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-primary);
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 50;
+  }
+
+  .sidebar__project {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 0;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border-primary);
+    padding-right: 16px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .sidebar__logo {
+    width: 64px;
+    margin-bottom: 0;
+  }
+
+  .sidebar__project .body-bold,
+  .sidebar__project .body-x-small {
+    display: none;
+  }
+
+  .sidebar__nav {
+    flex-direction: row;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .sidebar__link {
+    white-space: nowrap;
+    padding: 6px 12px;
+  }
+
+  .page {
+    min-height: 0;
+  }
+
+  .page-title {
+    padding: 20px 16px 0;
+  }
+
+  .sections {
+    padding: var(--wrapper-padding-small);
+  }
+
+  .grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+
+  :root {
+    --size-xxl:          36px;
+    --size-xl:           28px;
+    --size-large:        22px;
+    --size-m:            19px;
+    --line-height-xxl:   44px;
+    --line-height-xl:    36px;
+    --line-height-large: 30px;
+    --line-height-m:     28px;
+  }
+
+  /* Show hamburger, hide nav links in the bar */
+  .sidebar__hamburger {
+    display: flex;
+  }
+
+  .sidebar__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 12px 12px;
+    background: var(--color-surface-subtle);
+    border-bottom: 1px solid var(--color-border-primary);
+    z-index: 49;
+  }
+
+  .sidebar__nav--open {
+    display: flex;
+  }
+
+  .sidebar {
+    position: relative;
+    padding: 8px 12px;
+    gap: 8px;
+    overflow: visible;
+  }
+
+  .sidebar__link {
+    white-space: normal;
+    padding: 10px 12px;
+  }
+
+  .grid-2col,
+  .grid-3col,
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sections {
+    padding: var(--wrapper-padding-xsmall);
+    gap: var(--content-spacing-default);
+  }
+
+  .page-title {
+    padding: 12px 12px 0;
+  }
+
+  .card {
+    padding: var(--section-padding-small);
+  }
+}

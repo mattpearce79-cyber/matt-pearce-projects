@@ -1,5 +1,23 @@
 localStorage.removeItem('blueprint-theme');
 
+// Mobile hamburger nav toggle
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('nav-toggle');
+  if (!toggle) return;
+  const nav = toggle.nextElementSibling;
+  toggle.addEventListener('click', function () {
+    const open = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('sidebar__nav--open', !open);
+  });
+  document.addEventListener('click', function (e) {
+    if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('sidebar__nav--open');
+    }
+  });
+});
+
 function setPainPointsView(section, view) {
   const container = document.getElementById(section + '-items');
   const gridBtn = document.getElementById(section + '-grid-btn');
