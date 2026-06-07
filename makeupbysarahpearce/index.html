@@ -110,32 +110,43 @@
       <h2 class="section-title">Recent Work</h2>
     </div>
     <div class="gallery__grid">
-      <div class="gallery__item gallery__item--tall">
+      <div class="gallery__item gallery__item--tall" data-src="Images/IMG_0094.JPG" data-caption="Bridal">
         <img src="Images/IMG_0094.JPG" alt="Bridal makeup" />
         <div class="gallery__caption">Bridal</div>
       </div>
-      <div class="gallery__item">
+      <div class="gallery__item" data-src="Images/IMG_0092.JPG" data-caption="Bridal Hair &amp; Makeup">
         <img src="Images/IMG_0092.JPG" alt="Bridal hair and makeup" />
         <div class="gallery__caption">Bridal Hair &amp; Makeup</div>
       </div>
-      <div class="gallery__item">
+      <div class="gallery__item" data-src="Images/IMG_0091.JPG" data-caption="Manicure">
         <img src="Images/IMG_0091.JPG" alt="Manicure" />
         <div class="gallery__caption">Manicure</div>
       </div>
-      <div class="gallery__item gallery__item--wide">
+      <div class="gallery__item gallery__item--wide" data-src="Images/Sarah Thorne wedding day 25 June 2011 021.jpeg" data-caption="Wedding Party">
         <img src="Images/Sarah Thorne wedding day 25 June 2011 021.jpeg" alt="Bride and bridesmaids" />
         <div class="gallery__caption">Wedding Party</div>
       </div>
-      <div class="gallery__item">
+      <div class="gallery__item" data-src="Images/IMG_0093.JPG" data-caption="Special FX">
         <img src="Images/IMG_0093.JPG" alt="Special FX makeup" />
         <div class="gallery__caption">Special FX</div>
       </div>
-      <div class="gallery__item gallery__item--wide">
+      <div class="gallery__item gallery__item--wide" data-src="Images/IMG_0090.JPG" data-caption="Wedding Morning">
         <img src="Images/IMG_0090.JPG" alt="Bridal party getting ready" />
         <div class="gallery__caption">Wedding Morning</div>
       </div>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox__prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox__next" id="lightboxNext" aria-label="Next">&#8250;</button>
+    <div class="lightbox__content">
+      <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+      <p class="lightbox__caption" id="lightboxCaption"></p>
+    </div>
+  </div>
 
   <!-- SERVICES / PRICING -->
   <section class="pricing section" id="pricing">
@@ -347,5 +358,44 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    (function () {
+      const items = Array.from(document.querySelectorAll('.gallery__item[data-src]'));
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const caption = document.getElementById('lightboxCaption');
+      let current = 0;
+
+      function open(index) {
+        current = index;
+        img.src = items[current].dataset.src;
+        img.alt = items[current].querySelector('img').alt;
+        caption.textContent = items[current].dataset.caption || '';
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      function step(dir) {
+        open((current + dir + items.length) % items.length);
+      }
+
+      items.forEach((item, i) => item.addEventListener('click', () => open(i)));
+      document.getElementById('lightboxClose').addEventListener('click', close);
+      document.getElementById('lightboxPrev').addEventListener('click', () => step(-1));
+      document.getElementById('lightboxNext').addEventListener('click', () => step(1));
+      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') step(-1);
+        if (e.key === 'ArrowRight') step(1);
+      });
+    })();
+  </script>
 </body>
 </html>
