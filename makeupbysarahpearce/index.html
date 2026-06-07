@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makeup by Sarah Pearce | Mobile Hair &amp; Makeup Artist, Farnborough</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">
+        <img src="Images/Logo_colour.svg" alt="Makeup by Sarah Pearce" class="nav__logo-img" />
+      </a>
+      <nav class="nav__links">
+        <a href="#about">About</a>
+        <a href="#gallery">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="nav__cta">Book Now</a>
+      </nav>
+      <button class="nav__burger" aria-label="Open menu" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#gallery" class="mobile-link">Work</a>
+      <a href="#pricing" class="mobile-link">Pricing</a>
+      <a href="#contact" class="mobile-link">Book Now</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__overlay"></div>
+      <img
+        src="Images/hero_01.png"
+        alt="Makeup artist at work"
+        class="hero__img"
+      />
+    </div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Mobile Hair &amp; Makeup Artist · Farnborough &amp; Surrey</p>
+      <h1 class="hero__title">Look &amp; feel<br /><em>beautiful.</em></h1>
+      <p class="hero__sub">Bridal · Special Occasions · Makeup Lessons</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--light">Book a Consultation</a>
+        <a href="#gallery" class="btn btn--ghost">View My Work</a>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Scroll down">
+      <span class="hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container about__grid">
+      <div class="about__image-wrap">
+        <img
+          src="Images/IMG_0095.JPG"
+          alt="Sarah Pearce, mobile hair and makeup artist"
+          class="about__img"
+        />
+        <div class="about__badge">
+          <span class="about__badge-num">98%</span>
+          <span class="about__badge-text">Recommended on Facebook</span>
+        </div>
+      </div>
+      <div class="about__copy">
+        <p class="label">About Me</p>
+        <h2 class="section-title">Making you look<br />&amp; feel your best</h2>
+        <p class="body-text">Hi, I'm Sarah, a mobile hair and makeup artist based in Farnborough, covering Hampshire, Surrey, and beyond. Whatever the occasion, my aim is simple: to ensure you look and feel absolutely beautiful.</p>
+        <p class="body-text">I specialise in bridal and bridal-party makeup, day and evening looks, group makeup parties, and one-to-one makeup lessons. As a mobile artist I come to you, so you can relax in the comfort of your own home on your most special days.</p>
+        <ul class="about__list">
+          <li>
+            <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Qualified hair &amp; makeup artist
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Mobile: I come to you, wherever you are
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            287+ five-star reviews &amp; 98% recommended
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Inclusive: all skin tones &amp; types welcome
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn--dark">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery section" id="gallery">
+    <div class="container gallery__header">
+      <p class="label">Portfolio</p>
+      <h2 class="section-title">Recent Work</h2>
+    </div>
+    <div class="gallery__grid">
+      <div class="gallery__item gallery__item--tall">
+        <img src="Images/IMG_0094.JPG" alt="Bridal makeup" />
+        <div class="gallery__caption">Bridal</div>
+      </div>
+      <div class="gallery__item">
+        <img src="Images/IMG_0092.JPG" alt="Bridal hair and makeup" />
+        <div class="gallery__caption">Bridal Hair &amp; Makeup</div>
+      </div>
+      <div class="gallery__item">
+        <img src="Images/IMG_0091.JPG" alt="Manicure" />
+        <div class="gallery__caption">Manicure</div>
+      </div>
+      <div class="gallery__item gallery__item--wide">
+        <img src="Images/Sarah Thorne wedding day 25 June 2011 021.jpeg" alt="Bride and bridesmaids" />
+        <div class="gallery__caption">Wedding Party</div>
+      </div>
+      <div class="gallery__item">
+        <img src="Images/IMG_0093.JPG" alt="Special FX makeup" />
+        <div class="gallery__caption">Special FX</div>
+      </div>
+      <div class="gallery__item gallery__item--wide">
+        <img src="Images/IMG_0090.JPG" alt="Bridal party getting ready" />
+        <div class="gallery__caption">Wedding Morning</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / PRICING -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="pricing__header">
+        <p class="label">Investment</p>
+        <h2 class="section-title">Services &amp; Pricing</h2>
+        <p class="pricing__sub body-text">All prices are for mobile appointments. I come to you. Get in touch to check availability and book your date.</p>
+      </div>
+
+      <div class="price-list">
+
+        <div class="price-list__group">
+          <h3 class="price-list__heading">Makeup</h3>
+          <ul class="price-list__items">
+            <li>
+              <span class="price-list__name">Makeup Lesson</span>
+              <span class="price-list__price">£70</span>
+            </li>
+            <li>
+              <span class="price-list__name">Prom Night Makeover</span>
+              <span class="price-list__price">£40</span>
+            </li>
+            <li class="price-list__sub-item">
+              <span class="price-list__name">+ Makeup Trial</span>
+              <span class="price-list__price">£30</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="price-list__group price-list__group--featured">
+          <span class="pricing__tag">Most Popular</span>
+          <h3 class="price-list__heading">Wedding Party</h3>
+          <ul class="price-list__items">
+            <li>
+              <span class="price-list__name">Bride</span>
+              <span class="price-list__price">£70</span>
+            </li>
+            <li class="price-list__sub-item">
+              <span class="price-list__name">+ Makeup Trial</span>
+              <span class="price-list__price">£50</span>
+            </li>
+            <li>
+              <span class="price-list__name">Bridesmaid <span class="price-list__each">(each)</span></span>
+              <span class="price-list__price">£40</span>
+            </li>
+            <li>
+              <span class="price-list__name">Mother of Bride / Groom</span>
+              <span class="price-list__price">£35</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="price-list__group">
+          <h3 class="price-list__heading">Nails &amp; Extras</h3>
+          <ul class="price-list__items">
+            <li>
+              <span class="price-list__name">Manicure &amp; Polish</span>
+              <span class="price-list__price">£25</span>
+            </li>
+            <li>
+              <span class="price-list__name">Pedicure</span>
+              <span class="price-list__price">£25</span>
+            </li>
+            <li>
+              <span class="price-list__name">Gift Vouchers</span>
+              <span class="price-list__price">from £15</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="price-list__group price-list__group--full">
+          <h3 class="price-list__heading">Special Packages</h3>
+          <ul class="price-list__items">
+            <li>
+              <span class="price-list__name">
+                Mother's Day Pamper Session
+                <span class="price-list__detail">Makeover &amp; Nails</span>
+              </span>
+              <span class="price-list__price">£60</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="pricing__note">A deposit is required to secure your booking. Gift vouchers are available from £15, the perfect present for someone special.</p>
+      <div class="pricing__cta">
+        <a href="#contact" class="btn btn--dark">Book Now</a>
+        <a href="#contact" class="btn btn--outline">Ask About Gift Vouchers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <p class="label label--light">Kind Words</p>
+      <h2 class="section-title section-title--light">What Clients Say</h2>
+      <div class="testimonials__grid">
+        <blockquote class="testimonial">
+          <p>"Sarah made me feel so at ease on my wedding morning. The makeup lasted all day through happy tears and dancing; it was absolute perfection. I couldn't recommend her more highly."</p>
+          <footer><strong>Recent Bride</strong>, Farnborough</footer>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p>"I booked Sarah for my daughter's prom and she was fantastic. She listened to exactly what was wanted and the results were stunning. Such a lovely, professional lady."</p>
+          <footer><strong>Prom Client</strong>, Surrey</footer>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p>"I had a one-to-one makeup lesson with Sarah and learnt so much. She was so patient and knowledgeable. I now feel confident doing my own makeup every day. Thank you!"</p>
+          <footer><strong>Makeup Lesson Client</strong>, Hampshire</footer>
+        </blockquote>
+      </div>
+      <p class="testimonials__cta-text">Sarah has over <strong>287 reviews</strong> and is <strong>98% recommended</strong> on Facebook.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container contact__grid">
+      <div class="contact__info">
+        <p class="label">Get in Touch</p>
+        <h2 class="section-title">Let's make you look beautiful</h2>
+        <p class="body-text">Whether you're planning your wedding, a special celebration, or would like a makeup lesson, I'd love to hear from you. Fill in the form and I'll get back to you as soon as possible.</p>
+        <ul class="contact__details">
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><path d="M2 4h16v12a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="currentColor"/><path d="M2 4l8 8 8-8" stroke="currentColor"/></svg>
+            makeupbysarahpearce@gmail.com
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><path d="M4 2h4l2 5-2.5 1.5a11 11 0 005 5L14 11l5 2v4a2 2 0 01-2 2C7.163 19 1 12.837 1 5a2 2 0 012-2h1z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            +44 7881 815877
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 016 6c0 4-6 10-6 10S4 12 4 8a6 6 0 016-6z" stroke="currentColor"/><circle cx="10" cy="8" r="2" stroke="currentColor"/></svg>
+            Farnborough, Hampshire &amp; surrounding areas
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="4" stroke="currentColor"/><circle cx="10" cy="10" r="3" stroke="currentColor"/><circle cx="14.5" cy="5.5" r="0.5" fill="currentColor" stroke="currentColor"/></svg>
+            @sarah_pearce_hairMUA
+          </li>
+        </ul>
+      </div>
+      <form class="contact__form" id="contactForm" novalidate>
+        <div class="form__row">
+          <div class="form__group">
+            <label for="name">Full Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+            <span class="form__error" id="nameError"></span>
+          </div>
+          <div class="form__group">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <span class="form__error" id="emailError"></span>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__group">
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option value="" disabled selected>Select a service…</option>
+              <option>Bridal Makeup</option>
+              <option>Bridal Trial</option>
+              <option>Bridesmaid Makeup</option>
+              <option>Mother of Bride / Groom</option>
+              <option>Prom Night Makeover</option>
+              <option>Makeup Lesson</option>
+              <option>Manicure &amp; Polish</option>
+              <option>Pedicure</option>
+              <option>Mother's Day Pamper Session</option>
+              <option>Gift Voucher Enquiry</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label for="date">Event Date</label>
+            <input type="date" id="date" name="date" />
+          </div>
+        </div>
+        <div class="form__group">
+          <label for="message">Message <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me a little about your event and what you're looking for…" required></textarea>
+          <span class="form__error" id="messageError"></span>
+        </div>
+        <button type="submit" class="btn btn--dark btn--full" id="submitBtn">
+          <span class="btn__text">Send Message</span>
+          <span class="btn__spinner" aria-hidden="true"></span>
+        </button>
+        <p class="form__success" id="formSuccess" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="Images/Logo_white.svg" alt="Makeup by Sarah Pearce" class="footer__logo-img" />
+        <p>Mobile Hair &amp; Makeup Artist · Farnborough, Hampshire</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="#about">About</a>
+        <a href="#gallery">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer__copy">&copy; 2026 Makeup by Sarah Pearce. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
