@@ -708,6 +708,27 @@ ul { list-style: none; }
 
 .price-list__group--full {
   grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.price-list__group--full .price-list__heading {
+  margin-bottom: 0;
+}
+
+.price-list__group--full .price-list__items {
+  flex-direction: row;
+  align-items: baseline;
+  gap: var(--space-lg);
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.price-list__group--full .price-list__items li {
+  border-bottom: none;
+  padding: 0;
 }
 
 .price-list__heading {
