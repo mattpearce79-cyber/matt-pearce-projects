@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "src": "/twinkl(.*)",
+      "status": 404,
+      "dest": "/404"
+    }
+  ]
+}
